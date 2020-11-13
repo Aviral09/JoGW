@@ -8,8 +8,7 @@ const messageSchema = new mongoose.Schema({
 		type: String
 	},
 	body: {
-		type: String,
-		maxlength: 500
+		type: String
 	},
 	status: {
 		type: Number,

@@ -7,6 +7,9 @@ const userSchema = new mongoose.Schema({
 	bitsId: {
 		type: String
 	},
+	name: {
+		type: String
+	},
 	permissionLevel: {
 		type: Number,
 		enum: [0,1,2]
