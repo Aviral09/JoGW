@@ -4,7 +4,7 @@ import Login from './components/Login/Login'
 import Logout from './components/Logout/Logout'
 import Navbar from './components/navbar/navbar';
 
-/*function App() {
+function App() {
 	return (
 		<div className='App'>
 			<Login />
@@ -12,14 +12,7 @@ import Navbar from './components/navbar/navbar';
 
 		</div>
 	);
-}*/
 
-function App() {
-	return (
-		<div className='App'>
-       <Navbar/>
-		</div>
-	);
-}
+
 
 export default App;
