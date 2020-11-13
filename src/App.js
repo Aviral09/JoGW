@@ -6,22 +6,6 @@ import {
   Switch,
 } from 'react-router-dom';
 // import logo from './logo.svg';
-<<<<<<< HEAD
-import "./App.css";
-import Login from './components/Login/Login'
-import Logout from './components/Logout/Logout'
-import Navbar from './components/navbar/navbar';
-
-function App() {
-	return (
-		<div className='App'>
-			<Login />
-			<Logout />
-
-		</div>
-	);
-
-=======
 import './App.css';
 import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
@@ -41,7 +25,6 @@ function App() {
     // 	<Logout />
     // </div>
   );
->>>>>>> origin
 }
 
 
