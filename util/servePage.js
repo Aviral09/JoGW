@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 function servePage(res,path) {
 	const page = fs.createReadStream(path);
 	res.status(200);

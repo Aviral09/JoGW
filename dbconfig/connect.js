@@ -8,6 +8,7 @@ async function connect(){
 			useNewUrlParser: true
 		});
 		console.log("Connected to \x1b[32mDatabase\x1b[0m");
+		return 0;
 	} catch(err){
 		console.log("ERROR: Could not connect to database: ", err);
 		process.exit(1);
