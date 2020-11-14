@@ -6,12 +6,21 @@ import Typography from '@material-ui/core/Typography';
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
-import './navbar.css';
-import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid'; 
+import Box from '@material-ui/core/Box';
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import Zoom from '@material-ui/core/Zoom';
+import Fab from '@material-ui/core/Fab';
+import Personal from '../personal/personal';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    position: 'fixed',
+    bottom: theme.spacing(2),
+    right: theme.spacing(2),
   },
   appBar: {
     backgroundColor: "grey",
@@ -26,15 +35,60 @@ const useStyles = makeStyles((theme) => ({
     width: "2rem",
     height: "2rem",
   },
+  appBar: {
+    zIndex:1,
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
+  },
+  margin:{
+    borderBottom: "3px solid green"
+  },
+  card: {
+    backgroundColor: ' #E7B8B8'
+  },
+  margi:{
+    borderBottom: "3px solid purple"
+  }
 }));
 
-export default ({ navHeading }) => {
+function ScrollTop(props) {
+  const { children, window } = props;
+  const classes = useStyles();
+  const trigger = useScrollTrigger({
+    target: window ? window() : undefined,
+    disableHysteresis: true,
+    threshold: 100,
+  });
+
+  const handleClick = (event) => {
+    const anchor = (event.target.ownerDocument || document).querySelector('#back-to-top-anchor');
+
+    if (anchor) {
+      anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
+
+  return (
+    <Zoom in={trigger}>
+      <div onClick={handleClick} role="presentation" className={classes.root}>
+        {children}
+      </div>
+    </Zoom>
+  );
+}
+
+
+
+export default function Navbar ({ navHeading },props)  {
   const classes = useStyles();
   if (navHeading == null)
     navHeading = "DashBoard";
 
   return (
-    <div className={classes.root}>
+    <React.Fragment>
+
 
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
@@ -53,7 +107,27 @@ export default ({ navHeading }) => {
           </Grid>
         </Toolbar>
       </AppBar>
+      <Toolbar id="back-to-top-anchor" />
 
-    </div>
+      <Box textAlign='center'>
+      <Button size="medium" className={classes.margin}>
+         <b>Inbox</b> 
+        </Button>
+        <Button size="medium" className={classes.margin}>
+        <b>Sent</b> 
+        </Button>
+    </Box>
+
+<Personal/>
+      
+     
+      <ScrollTop {...props}>
+        <Fab color="secondary" size="small" aria-label="scroll back to top">
+          <KeyboardArrowUpIcon />
+        </Fab>
+      </ScrollTop>
+
+      </React.Fragment>
   );
 }
+
