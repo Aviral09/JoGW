@@ -7,62 +7,52 @@ import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
 import './navbar.css';
-import Grid from '@material-ui/core/Grid'; 
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  appBar: {
+    backgroundColor: "grey",
+  },
+  title: {
+    textAlign: "center",
+  },
   menuButton: {
-    marginRight: theme.spacing(2),
+    marginLeft: theme.spacing(2),
+    marginTop: theme.spacing(0.5),
+    float: "right",
+    width: "2rem",
+    height: "2rem",
   },
 }));
 
-export default function Navbar() {
+export default ({ navHeading }) => {
   const classes = useStyles();
+  if (navHeading == null)
+    navHeading = "DashBoard";
 
   return (
     <div className={classes.root}>
 
-     
-      <AppBar position="fixed"  className={classes.appBar}>
-<Toolbar>
- 
-      <Grid container   spacing={0}  alignItems='flex-start'>
-          <Grid item xs={3} sm={4} md={4} lg={1} spacing={0}  >
-                  
-                 <div className='joe'>
-                  <Typography variant="h4" edge='start'><div className='jay'><b>JoGW</b></div></Typography>
-                  </div>
-                  </Grid> 
-                  <Grid item lg={3}></Grid>
-                  <Grid item xs={6} sm={4} md={4} lg={4} spacing={0} >
-                      
-                  <Typography variant="h4" ><div className='jay'><b>Dashboard</b></div></Typography>
-                  
-               
-                
-                 </Grid>
-
-
-                 <Grid  item xs={3} sm={4} md={4} lg={4} spacing={0} alignContent='flex-end'>
-                 <div className='kod'>
-                
-            
-                <div><SearchIcon/></div>
-                <div><NotificationsActiveIcon/></div>
-                <div><AccountCircleRoundedIcon/></div>
-               </div> 
-               </Grid>  
-              
-               
-        </Grid>
-         
-        
-       
+      <AppBar position="fixed" className={classes.appBar}>
+        <Toolbar>
+          <Grid container>
+            <Grid item xs>
+              <Typography variant="h4" edge='start'><b>JoGW</b></Typography>
+            </Grid>
+            <Grid item xs>
+              <Typography className={classes.title} variant="h4"><b>{navHeading}</b></Typography>
+            </Grid>
+            <Grid item xs alignContent='flex-end'>
+              <AccountCircleRoundedIcon className={classes.menuButton} />
+              <NotificationsActiveIcon className={classes.menuButton} />
+              <SearchIcon className={classes.menuButton} />
+            </Grid>
+          </Grid>
         </Toolbar>
       </AppBar>
-
 
     </div>
   );
