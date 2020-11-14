@@ -1,5 +1,4 @@
 import React from 'react';
-import {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -7,8 +6,15 @@ import Typography from '@material-ui/core/Typography';
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
-import './navbar.css';
-import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid'; 
+import Box from '@material-ui/core/Box';
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import Zoom from '@material-ui/core/Zoom';
+import Fab from '@material-ui/core/Fab';
+import Personal from '../personal/personal';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,24 +42,46 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(3),
   },
-})/*((props) => (
-  <Menu
-    elevation={0}
-    getContentAnchorEl={null}
-    anchorOrigin={{
-      vertical: 'bottom',
-      horizontal: 'center',
-    }}
-    transformOrigin={{
-      vertical: 'top',
-      horizontal: 'center',
-    }}
-    {...props}
-  />
-))*/);
+  margin:{
+    borderBottom: "3px solid green"
+  },
+  card: {
+    backgroundColor: ' #E7B8B8'
+  },
+  margi:{
+    borderBottom: "3px solid purple"
+  }
+}));
+
+function ScrollTop(props) {
+  const { children, window } = props;
+  const classes = useStyles();
+  const trigger = useScrollTrigger({
+    target: window ? window() : undefined,
+    disableHysteresis: true,
+    threshold: 100,
+  });
+
+  const handleClick = (event) => {
+    const anchor = (event.target.ownerDocument || document).querySelector('#back-to-top-anchor');
+
+    if (anchor) {
+      anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
+
+  return (
+    <Zoom in={trigger}>
+      <div onClick={handleClick} role="presentation" className={classes.root}>
+        {children}
+      </div>
+    </Zoom>
+  );
+}
 
 
-export default ({ navHeading }) => {
+
+export default function Navbar ({ navHeading },props)  {
   const classes = useStyles();
   if (navHeading == null)
     navHeading = "DashBoard";
@@ -80,21 +108,19 @@ export default ({ navHeading }) => {
         </Toolbar>
       </AppBar>
       <Toolbar id="back-to-top-anchor" />
-      <Container>
-      <h1>Welcome Nipun </h1>
-      </Container>
-      <Container>
-        <Box my={2}>
-          {[...new Array(30)]
-            .map(
-              () => `Cras mattis consectetur purus sit amet fermentum.
-Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
-            )
-            .join('\n')}
-        </Box>
-      </Container>
+
+      <Box textAlign='center'>
+      <Button size="medium" className={classes.margin}>
+         <b>Inbox</b> 
+        </Button>
+        <Button size="medium" className={classes.margin}>
+        <b>Sent</b> 
+        </Button>
+    </Box>
+
+<Personal/>
+      
+     
       <ScrollTop {...props}>
         <Fab color="secondary" size="small" aria-label="scroll back to top">
           <KeyboardArrowUpIcon />
@@ -105,54 +131,3 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
   );
 }
 
-
-//onClick={()=>setOpen(!open)}>
-/*<StyledMenu
-id="customized-menu"
-anchorEl={anchorEl}
-keepMounted
-open={Boolean(anchorEl)}
-onClose={handleClose}
->
-<StyledMenuItem>
-          <ListItemIcon>
-            <SendIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText primary="Sent mail" />
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemIcon>
-            <DraftsIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText primary="Drafts" />
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemIcon>
-            <InboxIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText primary="Inbox" />
-        </StyledMenuItem>
-      </StyledMenu>*/
-
-
-
-      /*      <main  className={classes.content}>
-        <div className='zoho'>
-        <AccountBoxIcon className='puff'/>
-          
-           <div className='teal'><b> Binod Tharu </b><br></br>f201X0XXX@goa.bits-pilani.ac.in</div>
-          
-        </div>  
-       
-       </main>
-       
-       
-       
-         const [anchorEl, setAnchorEl] = React.useState(null);
-
- 
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-       */
