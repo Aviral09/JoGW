@@ -8,24 +8,7 @@ import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
 import './navbar.css';
-import { withStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid'; 
-import IconButton from '@material-ui/core/IconButton';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import AccountBoxIcon from '@material-ui/icons/AccountBox';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import SendIcon from '@material-ui/icons/Send';
-import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
-import Zoom from '@material-ui/core/Zoom';
-import Fab from '@material-ui/core/Fab';
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,8 +16,18 @@ const useStyles = makeStyles((theme) => ({
     bottom: theme.spacing(2),
     right: theme.spacing(2),
   },
+  appBar: {
+    backgroundColor: "grey",
+  },
+  title: {
+    textAlign: "center",
+  },
   menuButton: {
-    marginRight: theme.spacing(2),
+    marginLeft: theme.spacing(2),
+    marginTop: theme.spacing(0.5),
+    float: "right",
+    width: "2rem",
+    height: "2rem",
   },
   appBar: {
     zIndex:1,
@@ -60,101 +53,30 @@ const useStyles = makeStyles((theme) => ({
 ))*/);
 
 
-/*const StyledMenuItem = withStyles((theme) => ({
-  root: {
-    '&:focus': {
-      backgroundColor: theme.palette.primary.main,
-      '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
-        color: theme.palette.common.white,
-      },
-    },
-  },
-}))(MenuItem);*/
-
-
-
-function ScrollTop(props) {
-  const { children, window } = props;
+export default ({ navHeading }) => {
   const classes = useStyles();
-  // Note that you normally won't need to set the window ref as useScrollTrigger
-  // will default to window.
-  // This is only being set here because the demo is in an iframe.
-  const trigger = useScrollTrigger({
-    target: window ? window() : undefined,
-    disableHysteresis: true,
-    threshold: 100,
-  });
-
-  const handleClick = (event) => {
-    const anchor = (event.target.ownerDocument || document).querySelector('#back-to-top-anchor');
-
-    if (anchor) {
-      anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  };
-
-  return (
-    <Zoom in={trigger}>
-      <div onClick={handleClick} role="presentation" className={classes.root}>
-        {children}
-      </div>
-    </Zoom>
-  );
-}
-
-
-
-export default function Navbar(props) {
-  const classes = useStyles();
- 
-
-
+  if (navHeading == null)
+    navHeading = "DashBoard";
 
   return (
     <React.Fragment>
 
 
-<CssBaseline />
-      <AppBar position="fixed"  className={classes.appBar}>
-<Toolbar >
- 
-      <Grid container   spacing={0}  >
-          <Grid item xs={3} sm={4} md={4} lg={1} spacing={0}  >
-                  
-                 <div className='joe'>
-                  <Typography variant="h4" edge='start'><div className='jay'><b>JoGW</b></div></Typography>
-                  </div>
-                  </Grid> 
-                  <Grid item lg={4}></Grid>
-                  <Grid item xs={6} sm={4} md={4} lg={3} spacing={0} >
-                      
-                  <Typography variant="h4" ><div className='jay'><b>DashBoard</b></div></Typography>
-                  
-               
-                
-                 </Grid>
-
-
-                 <Grid  item xs={3} sm={4} md={4} lg={4} spacing={0} >
-                 <div className='kod'>
-                
-                 
-                 <IconButton >  <div><SearchIcon/></div></IconButton> 
-
-
-
-                 <IconButton  ><div><NotificationsActiveIcon/></div></IconButton> 
-                 <IconButton ><div><AccountCircleRoundedIcon/></div></IconButton> 
-               </div> 
-                  
-
-               </Grid>  
-              
-               
-        </Grid>
-         
-       
-       
+      <AppBar position="fixed" className={classes.appBar}>
+        <Toolbar>
+          <Grid container>
+            <Grid item xs>
+              <Typography variant="h4" edge='start'><b>JoGW</b></Typography>
+            </Grid>
+            <Grid item xs>
+              <Typography className={classes.title} variant="h4"><b>{navHeading}</b></Typography>
+            </Grid>
+            <Grid item xs alignContent='flex-end'>
+              <AccountCircleRoundedIcon className={classes.menuButton} />
+              <NotificationsActiveIcon className={classes.menuButton} />
+              <SearchIcon className={classes.menuButton} />
+            </Grid>
+          </Grid>
         </Toolbar>
       </AppBar>
       <Toolbar id="back-to-top-anchor" />
@@ -179,10 +101,7 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
         </Fab>
       </ScrollTop>
 
-
-   
-    </React.Fragment>
-   
+      </React.Fragment>
   );
 }
 
