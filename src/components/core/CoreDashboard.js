@@ -3,6 +3,7 @@ import { Box, Container, makeStyles } from "@material-ui/core";
 import Navbar from "../navbar/navbar";
 import { KeyboardArrowRight } from "@material-ui/icons";
 import MessageCard from "./MessageCard";
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
   headerBox: {
@@ -44,11 +45,13 @@ const Dashboard = (messages) => {
         </Box>
       </Container>
       {/*List of messages*/}
+      
       <Container>{
           msgs.map((message) => (
             <MessageCard rollNumber={ "2019A8PS0666G" } message={ message } date={ "28th Dec 2020, 2:31 a.m." } />
           ))
         }</Container>
+        
     </React.Fragment>
   )
 }

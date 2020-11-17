@@ -25,7 +25,7 @@ function App() {
       </Switch>
   </Router>*/
     <div>
-      <Personal />
+      <Personal/>
     </div>
     // <div className='App'>
     // 	<Login />
