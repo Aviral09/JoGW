@@ -39,7 +39,11 @@ export default function AdminCards(){
 
 
     const handleChange10 = (event) => {
-      setChecked(event.target.checked);
+      if(checked1==true)
+      {
+        setChecked1(!checked1);
+      }
+      setChecked(!checked);
       if(event.target.checked==true){
         setn(10);
       }
@@ -47,6 +51,10 @@ export default function AdminCards(){
     };
 
     const handleChange20 = (event) => {
+      if(checked==true)
+      {
+        setChecked(!checked);
+      }
       setChecked1(event.target.checked);
       if(event.target.checked==true){
         setn(25);
@@ -58,6 +66,15 @@ export default function AdminCards(){
     const [value, setValue] = useState(' ');
 
     const handleChangeinput = (event) => {
+      if(checked==true)
+      {
+        setChecked(!checked);
+      }
+      if(checked1==true)
+      {
+        setChecked1(!checked1);
+      }
+
       setValue(event.target.value);
       if(value==' '){
         setn(30);
@@ -77,6 +94,7 @@ return(
          <b>First 10</b>   
         <Checkbox
         checked={checked}
+        name='hel'
         onChange={handleChange10} 
         inputProps={{ 'aria-label': 'primary checkbox' }}
       />
@@ -87,6 +105,7 @@ return(
         checked={checked1}
         onChange={handleChange20} 
         color="primary"
+        name='hel'
         inputProps={{ 'aria-label': 'secondary checkbox' }}
       />
         </Box>
@@ -97,6 +116,7 @@ return(
           multiline
           rowsMax={4}
           value={value}
+          name='hel'
           onChange={handleChangeinput}
         />
  
