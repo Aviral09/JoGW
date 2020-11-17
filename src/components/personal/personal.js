@@ -14,6 +14,10 @@ import Zoom from '@material-ui/core/Zoom';
 import Fab from '@material-ui/core/Fab';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Navbar from "../navbar/navbar";
+import Grid from '@material-ui/core/Grid';
+import IconButton from '@material-ui/core/IconButton';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -45,15 +49,22 @@ const useStyles = makeStyles((theme) => ({
     card: {
       backgroundColor: ' #E7B8B8'
     },
+    Gin:{
+      marginTop:'8px',
+      marginRight:'10px',
+      whiteSpace:'nowrap',
+      overflow:'hidden'
+    },
     margi:{
-      borderBottom: "3px solid purple"
+      border: "3px solid black",
+      backgroundColor: ' grey'
     }
 }));
 
 
 export default function Personal (props)  {
   const classes = useStyles();
-  
+  var det=['Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add'];
   function ScrollTop(props) {
     const { children, window } = props;
     const classes = useStyles();
@@ -99,21 +110,34 @@ export default function Personal (props)  {
       <Box textAlign='center'>
         <h3>Messages</h3>
       </Box>
+
+
       {/*Container to show all messages*/}
-      <Container>
-        <Card variant="outlined" className={classes.card}>
-          <CardContent>
-            <List>
-              {['Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add'].map((text, index) => (
-                <ListItem button key={text}>
-                  <ListItemIcon></ListItemIcon>
-                  <ListItemText primary={text} className={classes.margi} />
-                </ListItem>
-              ))}
-            </List>
-          </CardContent>
-        </Card>
-      </Container>
+
+
+      {det.slice(0,50).map((text, index) => (
+    <Grid container direction={'column'} > 
+         <Container className={classes.margi} >
+   <Grid container direction={'row'}   >
+   <Grid item xs className={classes.jin}>
+   <IconButton  ><ArrowForwardIcon ></ArrowForwardIcon ></IconButton>
+
+</Grid>
+<Grid item xs ><Typography variant="h6" p={1} ><b><IconButton>Subject</IconButton></b></Typography></Grid>
+
+<Grid item xs alignContent='flex-end'>
+
+</Grid>
+<Grid item xs lg={2} className={classes.Gin}>
+              <Typography variant="h6" edge='start'><b>{text}</b></Typography>
+</Grid>
+
+    </Grid> 
+</Container> 
+</Grid>   
+              
+      ))}
+
       {/*Scroll to top FAB*/}
       <ScrollTop {...props}>
         <Fab color="secondary" size="small" aria-label="scroll back to top">

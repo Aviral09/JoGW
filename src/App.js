@@ -16,19 +16,6 @@ import CoreDashboard from "./components/core/CoreDashboard";
 
 function App() {
   return (
-<<<<<<< HEAD
-    /*  <Router>
-        <Switch>
-          <Route exact path="/home" component={Logout} />
-          <Route exact path="/" component={Login} />
-  
-          //<Redirect to="/login" />
-        </Switch>
-    </Router>*/
-     <Navbar/>
-   // <ReadMessagePopup />
-    // <SendMessagePopup submitFunction={(a, b) => { console.log(a + '\n' + b); }} />
-=======
   /*  <Router>
       <Switch>
         <Route exact path="/home" component={Logout} />
@@ -38,9 +25,8 @@ function App() {
       </Switch>
   </Router>*/
     <div>
-      <Personal />
+      <Personal/>
     </div>
->>>>>>> master
     // <div className='App'>
     // 	<Login />
     // 	<Logout />
