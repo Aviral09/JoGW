@@ -7,6 +7,7 @@ import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
 import Grid from '@material-ui/core/Grid'; 
+import { IconButton } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,7 +41,8 @@ const useStyles = makeStyles((theme) => ({
   },
   margi:{
     borderBottom: "3px solid purple"
-  }
+  },
+
 }));
 
 export default function Navbar ({ navHeading },props)  {
@@ -60,9 +62,15 @@ export default function Navbar ({ navHeading },props)  {
               <Typography className={classes.title} variant="h4"><b>{navHeading}</b></Typography>
             </Grid>
             <Grid item xs alignContent='flex-end'>
-              <AccountCircleRoundedIcon className={classes.menuButton} />
-              <NotificationsActiveIcon className={classes.menuButton} />
-              <SearchIcon className={classes.menuButton} />
+              <IconButton className={classes.menuButton}>
+                <AccountCircleRoundedIcon />
+              </IconButton>
+              <IconButton className={classes.menuButton}>
+                <NotificationsActiveIcon />
+              </IconButton>
+              <IconButton className={classes.menuButton}>
+                <SearchIcon />
+              </IconButton>
             </Grid>
           </Grid>
         </Toolbar>
