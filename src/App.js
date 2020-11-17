@@ -23,8 +23,8 @@ function App() {
           //<Redirect to="/login" />
         </Switch>
     </Router>*/
-    // <Navbar/>
-    <ReadMessagePopup />
+     <Navbar/>
+   // <ReadMessagePopup />
     // <SendMessagePopup submitFunction={(a, b) => { console.log(a + '\n' + b); }} />
     // <div className='App'>
     // 	<Login />
