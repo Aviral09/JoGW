@@ -9,7 +9,10 @@ import {
 import './App.css';
 import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
-import Navbar from './components/navbar/navbar';
+import MessageCard from './components/core/MessageCard';
+import Personal from "./components/personal/personal";
+import Navbar from "./components/navbar/navbar";
+import CoreDashboard from "./components/core/CoreDashboard";
 
 function App() {
   return (
@@ -20,8 +23,10 @@ function App() {
 
         //<Redirect to="/login" />
       </Switch>
-	</Router>*/
-	<Navbar/>
+  </Router>*/
+    <div>
+      <CoreDashboard />
+    </div>
     // <div className='App'>
     // 	<Login />
     // 	<Logout />

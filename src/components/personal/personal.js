@@ -3,12 +3,17 @@ import { makeStyles } from '@material-ui/core/styles';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Container from '@material-ui/core/Container';
+import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import { CardContent } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
-
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import Zoom from '@material-ui/core/Zoom';
+import Fab from '@material-ui/core/Fab';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import Navbar from "../navbar/navbar";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -18,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
     },
     appBar: {
       backgroundColor: "grey",
+      zIndex:1,
     },
     title: {
       textAlign: "center",
@@ -28,9 +34,6 @@ const useStyles = makeStyles((theme) => ({
       float: "right",
       width: "2rem",
       height: "2rem",
-    },
-    appBar: {
-      zIndex:1,
     },
     content: {
       flexGrow: 1,
@@ -45,45 +48,78 @@ const useStyles = makeStyles((theme) => ({
     margi:{
       borderBottom: "3px solid purple"
     }
-  }));
+}));
 
 
-  export default function Personal ({ navHeading },props)  {
+export default function Personal (props)  {
+  const classes = useStyles();
+  
+  function ScrollTop(props) {
+    const { children, window } = props;
     const classes = useStyles();
-    if (navHeading == null)
-      navHeading = "DashBoard";
+    const trigger = useScrollTrigger({
+      target: window ? window() : undefined,
+      disableHysteresis: true,
+      threshold: 100,
+    });
+  
+    const handleClick = (event) => {
+      const anchor = (event.target.ownerDocument || document).querySelector('#back-to-top-anchor');
+  
+      if (anchor) {
+        anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    };
   
     return (
-<React.Fragment>
-<Container>
-      
-<h1>Welcome Nipun </h1>
-
-</Container>
-<Box textAlign='center'>
-<h3>Messages</h3>
-</Box>
-
-<Container>
-<Card variant="outlined" className={classes.card}>
-  <CardContent>
-<List>
-      {['Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ',  'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add'].map((text, index) => (
-        <ListItem button key={text}  >
-          <ListItemIcon></ListItemIcon>
-
-          <ListItemText primary={text} className={classes.margi}/>
-        
-        </ListItem>
-       
-      ))}
-    </List>
-    </CardContent>
-    </Card>
-    </Container>
-
-
-
-</React.Fragment>
+      <Zoom in={trigger}>
+        <div onClick={handleClick} role="presentation" className={classes.root}>
+          {children}
+        </div>
+      </Zoom>
+    );
+  }
+  return (
+    <React.Fragment>
+      {/*Nav bar*/}
+      <Navbar navHeading="Dashboard"/>
+      {/*Inbox and sent buttons*/}
+      <Box textAlign='center'>
+        <Button size="medium" className={classes.margin}>
+          <b>Inbox</b> 
+        </Button>
+        <Button size="medium" className={classes.margin}>
+          <b>Sent</b> 
+        </Button>
+      </Box>
+      {/*Welcome message and heading*/}
+      <Container>
+        <h1>Welcome Nipun </h1>
+      </Container>
+      <Box textAlign='center'>
+        <h3>Messages</h3>
+      </Box>
+      {/*Container to show all messages*/}
+      <Container>
+        <Card variant="outlined" className={classes.card}>
+          <CardContent>
+            <List>
+              {['Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add'].map((text, index) => (
+                <ListItem button key={text}>
+                  <ListItemIcon></ListItemIcon>
+                  <ListItemText primary={text} className={classes.margi} />
+                </ListItem>
+              ))}
+            </List>
+          </CardContent>
+        </Card>
+      </Container>
+      {/*Scroll to top FAB*/}
+      <ScrollTop {...props}>
+        <Fab color="secondary" size="small" aria-label="scroll back to top">
+          <KeyboardArrowUpIcon />
+        </Fab>
+      </ScrollTop>
+    </React.Fragment>
   );
 }
