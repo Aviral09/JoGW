@@ -15,6 +15,7 @@ import Zoom from '@material-ui/core/Zoom';
 import Fab from '@material-ui/core/Fab';
 import Personal from '../personal/personal';
 import { IconButton } from '@material-ui/core';
+import Notifs from '../Popups/notifs';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -104,7 +105,8 @@ export default function Navbar ({ navHeading },props)  {
 
             <IconButton className={classes.menuButton}><AccountCircleRoundedIcon /></IconButton>
 
-              <IconButton className={classes.menuButton}><NotificationsActiveIcon  /></IconButton>
+              {/* <IconButton className={classes.menuButton}><NotificationsActiveIcon  /></IconButton> */}
+              <Notifs/>
 
 
               <IconButton className={classes.menuButton}><SearchIcon  /></IconButton>
