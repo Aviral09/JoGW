@@ -16,6 +16,7 @@ import Fab from '@material-ui/core/Fab';
 import Personal from '../personal/personal';
 import { IconButton } from '@material-ui/core';
 import Notifs from '../Popups/notifs';
+import AdminCards from '../admincards/admincards';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -127,7 +128,7 @@ export default function Navbar ({ navHeading },props)  {
         </Button>
     </Box>
 
-<Personal/>
+<AdminCards/>
       
      
       <ScrollTop {...props}>
