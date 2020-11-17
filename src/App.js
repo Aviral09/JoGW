@@ -11,6 +11,7 @@ import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
 import Navbar from './components/navbar/navbar';
 import ReadMessagePopup from './components/popups/ReadMessagePopup';
+import SendMessagePopup from './components/popups/SendMessagePopup';
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
     </Router>*/
     // <Navbar/>
     <ReadMessagePopup />
-    // <SendMessagePopup />
+    // <SendMessagePopup submitFunction={(a, b) => { console.log(a + '\n' + b); }} />
     // <div className='App'>
     // 	<Login />
     // 	<Logout />
