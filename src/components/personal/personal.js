@@ -49,7 +49,8 @@ const useStyles = makeStyles((theme) => ({
       marginTop:'8px',
       marginRight:'10px',
       whiteSpace:'nowrap',
-      overflow:'hidden'
+      overflow:'hidden',
+      flex:1
     },
     margi:{
       border: "3px solid black",
@@ -64,7 +65,10 @@ const useStyles = makeStyles((theme) => ({
     ter:{
       width: 11,
       height: 11,
-    }
+    },
+    Gi:{
+      flex:2
+    },
 }));
 
 
@@ -118,7 +122,7 @@ export default function Personal (props)  {
       </Box>
 
       {/*Container to show all messages*/}
-      {det.slice(0,50).map((text, index) => (
+      {det.slice(0,20).map((text, index) => (
     <Grid container direction={'column'} > 
          <Container className={classes.margi} >
    <Grid container direction={'row'}   >
@@ -126,32 +130,35 @@ export default function Personal (props)  {
    <IconButton  ><ArrowForwardIcon ></ArrowForwardIcon ></IconButton>
 
 </Grid>
-<Grid item xs ><Typography variant="h6" p={1} ><b><IconButton>Subject</IconButton></b></Typography></Grid>
+<Grid item xs className={classes.Gi}><Typography variant="h6" p={1} ><b><IconButton>Subject</IconButton></b></Typography></Grid>
 
-<Grid item xs alignContent='flex-end'>
+<Grid item xs alignContent='flex-end' className={classes.Gi}>
 
 </Grid>
 <Grid item xs lg={2} className={classes.Gin}>
               <Typography variant="h6" edge='start'><b>{text}</b></Typography>
 </Grid>
-
+<Grid item xs lg={2} className={classes.Gi}>
+              
+</Grid>
     </Grid> 
 </Container> 
-</Grid>                
+</Grid>          
       ))}
-    <Grid container direction={'row'}  >
+
+      <Grid container direction={'row'} className={classes.fix}  >
 <Grid item xs className={classes.leg}></Grid>
     <Grid item  className={classes.imgt} ><IconButton className={classes.ter}><AddCircleIcon className='tera'/></IconButton></Grid>
-
+    
       {/*Scroll to top FAB*/}
-      <Grid item className={classes.imgt} >
+      <Grid item className={classes.imgt}  >
       <ScrollTop {...props}>
         <Fab color="secondary" size="small" aria-label="scroll back to top">
           <KeyboardArrowUpIcon />
         </Fab>
       </ScrollTop>
       </Grid>
-      </Grid>      
+      </Grid> 
     </React.Fragment>
   );
 }
