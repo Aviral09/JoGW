@@ -9,23 +9,24 @@ import {
 import './App.css';
 import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
-import Navbar from './components/navbar/navbar';
-import ReadMessagePopup from './components/Popups/ReadMessagePopup';
-import SendMessagePopup from './components/Popups/SendMessagePopup';
+import MessageCard from './components/core/MessageCard';
+import Personal from "./components/personal/personal";
+import Navbar from "./components/navbar/navbar";
+import CoreDashboard from "./components/core/CoreDashboard";
 
 function App() {
   return (
-    /*  <Router>
-        <Switch>
-          <Route exact path="/home" component={Logout} />
-          <Route exact path="/" component={Login} />
-  
-          //<Redirect to="/login" />
-        </Switch>
-    </Router>*/
-    <Navbar/>
-    // <ReadMessagePopup />
-    // <SendMessagePopup submitFunction={(a, b) => { console.log(a + '\n' + b); }} />
+  /*  <Router>
+      <Switch>
+        <Route exact path="/home" component={Logout} />
+        <Route exact path="/" component={Login} />
+
+        //<Redirect to="/login" />
+      </Switch>
+  </Router>*/
+    <div>
+      <Personal/>
+    </div>
     // <div className='App'>
     // 	<Login />
     // 	<Logout />
