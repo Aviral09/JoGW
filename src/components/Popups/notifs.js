@@ -11,7 +11,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
+  root: {
     width: '100%',
     maxWidth: 360,
     backgroundColor: theme.palette.background.paper,
@@ -23,9 +23,9 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginLeft: theme.spacing(2),
     marginTop: theme.spacing(0.5),
-    float: "right",
-    width: "2rem",
-    height: "2rem",
+    float: 'right',
+    width: '2rem',
+    height: '2rem',
   },
 }));
 
@@ -46,7 +46,9 @@ export default function Notifs() {
 
   return (
     <div>
-         <IconButton className={classes.menuButton} onClick={handleClick}><NotificationsActiveIcon  /></IconButton>
+      <IconButton className={classes.menuButton} onClick={handleClick}>
+        <NotificationsActiveIcon />
+      </IconButton>
 
       {/* <Button aria-describedby={id} variant="contained" color="primary" onClick={handleClick}>
         Open Popover
@@ -64,19 +66,32 @@ export default function Notifs() {
           vertical: 'top',
           horizontal: 'center',
         }}
-        
       >
-          <List component="nav" className={classes.root} aria-label="notifications">
-              { ["New notifications","New notifications","New notifications","New notifications","New notifications",].map((notif,index)=> {
-                return (<div>
-                            <ListItem button>
-                                <ListItemText className={classes.typography} primary={notif} />
-                            </ListItem>
-                            <Divider />  
-                        </div>)
-              })
-              }
-      </List>
+        <List
+          component="nav"
+          className={classes.root}
+          aria-label="notifications"
+        >
+          {[
+            'New notifications',
+            'New notifications',
+            'New notifications',
+            'New notifications',
+            'New notifications',
+          ].map((notif, index) => {
+            return (
+              <div>
+                <ListItem button>
+                  <ListItemText
+                    className={classes.typography}
+                    primary={notif}
+                  />
+                </ListItem>
+                <Divider />
+              </div>
+            );
+          })}
+        </List>
         {/* <Typography className={classes.typography}>New notifications</Typography> */}
       </Popover>
     </div>

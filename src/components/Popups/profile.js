@@ -25,16 +25,16 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginLeft: theme.spacing(2),
     marginTop: theme.spacing(0.5),
-    float: "right",
-    width: "2rem",
-    height: "2rem",
+    float: 'right',
+    width: '2rem',
+    height: '2rem',
   },
-   orange: {
+  orange: {
     color: theme.palette.getContrastText('#aa11ff'),
     backgroundColor: '#aa11ff',
   },
 }));
-const name ="Nipun Gupta";
+const name = 'Nipun Gupta';
 
 export default function Profile() {
   const classes = useStyles();
@@ -53,7 +53,9 @@ export default function Profile() {
 
   return (
     <div>
-         <IconButton className={classes.menuButton} onClick={handleClick}><AccountCircleRoundedIcon /></IconButton>
+      <IconButton className={classes.menuButton} onClick={handleClick}>
+        <AccountCircleRoundedIcon />
+      </IconButton>
 
       {/* <Button aria-describedby={id} variant="contained" color="primary" onClick={handleClick}>
         Open Popover
@@ -72,21 +74,21 @@ export default function Profile() {
           horizontal: 'center',
         }}
       >
-          <List className={classes.root}>
-      <ListItem>
-        <ListItemAvatar>
-    <Avatar className={classes.orange}>N</Avatar>
-        </ListItemAvatar>
-        <ListItemText primary={name} secondary="2019B1PS1000G" />
-      </ListItem>
-      <Divider variant="inset" component="li" />
-      <ListItem button>
+        <List className={classes.root}>
+          <ListItem>
+            <ListItemAvatar>
+              <Avatar className={classes.orange}>N</Avatar>
+            </ListItemAvatar>
+            <ListItemText primary={name} secondary="2019B1PS1000G" />
+          </ListItem>
+          <Divider variant="inset" component="li" />
+          <ListItem button>
             <ListItemText className={classes.typography} primary="My profile" />
-        </ListItem>
-        <Divider />  
-        <ListItem button>
+          </ListItem>
+          <Divider />
+          <ListItem button>
             <ListItemText className={classes.typography} primary="Logout" />
-        </ListItem>
+          </ListItem>
         </List>
         {/* <Typography className={classes.typography}>New notifications</Typography> */}
       </Popover>
