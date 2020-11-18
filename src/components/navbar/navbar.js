@@ -3,11 +3,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import SearchIcon from '@material-ui/icons/Search';
-import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
+import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid'; 
 import { IconButton } from '@material-ui/core';
+import Notifs from '../Popups/notifs';
+import Profile from '../Popups/profile';
+import AdminCards from '../admincards/admincards';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -62,15 +64,15 @@ export default function Navbar ({ navHeading },props)  {
               <Typography className={classes.title} variant="h4"><b>{navHeading}</b></Typography>
             </Grid>
             <Grid item xs alignContent='flex-end'>
-              <IconButton className={classes.menuButton}>
-                <AccountCircleRoundedIcon />
-              </IconButton>
-              <IconButton className={classes.menuButton}>
-                <NotificationsActiveIcon />
-              </IconButton>
-              <IconButton className={classes.menuButton}>
-                <SearchIcon />
-              </IconButton>
+
+            <Profile />
+
+              {/* <IconButton className={classes.menuButton}><NotificationsActiveIcon  /></IconButton> */}
+              <Notifs/>
+
+
+              <IconButton className={classes.menuButton}><SearchIcon  /></IconButton>
+
             </Grid>
           </Grid>
         </Toolbar>

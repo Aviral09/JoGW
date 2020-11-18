@@ -121,6 +121,26 @@ export default function Personal (props)  {
         <h3>Messages</h3>
       </Box>
 
+{/* <Container>
+
+
+      {['Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ',  'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add'].map((text, index) => (
+        <Card variant="outlined" className={classes.card} key={text}>
+  <CardContent>
+    <List>
+        <ListItem button  key={text} >
+          <ListItemIcon></ListItemIcon>
+
+          <ListItemText primary={text} className={classes.margi}/>
+        
+        </ListItem>
+        </List>
+    </CardContent>
+    </Card>
+       
+      ))}
+    
+    </Container> */}
       {/*Container to show all messages*/}
       {det.slice(0,20).map((text, index) => (
     <Grid container direction={'column'} > 
