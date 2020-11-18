@@ -123,32 +123,29 @@ export default function Personal (props)  {
 
       {/*Container to show all messages*/}
       {det.slice(0,20).map((text, index) => (
-    <Grid container direction={'column'} > 
-         <Container className={classes.margi} >
-   <Grid container direction={'row'}   >
-   <Grid item xs className={classes.jin}>
-   <IconButton  ><ArrowForwardIcon ></ArrowForwardIcon ></IconButton>
-
-</Grid>
-<Grid item xs className={classes.Gi}><Typography variant="h6" p={1} ><b><IconButton>Subject</IconButton></b></Typography></Grid>
-
-<Grid item xs alignContent='flex-end' className={classes.Gi}>
-
-</Grid>
-<Grid item xs lg={2} className={classes.Gin}>
-              <Typography variant="h6" edge='start'><b>{text}</b></Typography>
-</Grid>
-<Grid item xs lg={2} className={classes.Gi}>
+          <Grid container direction={'column'} > 
+                <Container className={classes.margi} >
+                  <Grid container direction={'row'}   >
+                      <Grid item xs className={classes.jin}>
+                        <IconButton  ><ArrowForwardIcon ></ArrowForwardIcon ></IconButton>
+                      </Grid>
+                      <Grid item xs className={classes.Gi}><Typography variant="h6" p={1} ><b><IconButton>Subject</IconButton></b></Typography></Grid>
+                      <Grid item xs alignContent='flex-end' className={classes.Gi}>
+                      </Grid>
+                      <Grid item xs lg={2} className={classes.Gin}>
+                      <Typography variant="h6" edge='start'><b>{text}</b></Typography>
+                    </Grid>
+                    <Grid item xs lg={2} className={classes.Gi}>      
               
-</Grid>
-    </Grid> 
-</Container> 
+                    </Grid>
+                    </Grid> 
+                </Container> 
 </Grid>          
       ))}
 
-      <Grid container direction={'row'} className={classes.fix}  >
-<Grid item xs className={classes.leg}></Grid>
-    <Grid item  className={classes.imgt} ><IconButton className={classes.ter}><AddCircleIcon className='tera'/></IconButton></Grid>
+<Grid container direction={'row'} className={classes.fix}  >
+      <Grid item xs className={classes.leg}></Grid>
+      <Grid item  className={classes.imgt} ><IconButton className={classes.ter}><AddCircleIcon className='tera'/></IconButton></Grid>
     
       {/*Scroll to top FAB*/}
       <Grid item className={classes.imgt}  >
