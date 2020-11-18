@@ -10,8 +10,8 @@ import './App.css';
 import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
 import Navbar from './components/navbar/navbar';
-import ReadMessagePopup from './components/popups/ReadMessagePopup';
-import SendMessagePopup from './components/popups/SendMessagePopup';
+import ReadMessagePopup from './components/Popups/ReadMessagePopup';
+import SendMessagePopup from './components/Popups/SendMessagePopup';
 
 function App() {
   return (
@@ -23,8 +23,8 @@ function App() {
           //<Redirect to="/login" />
         </Switch>
     </Router>*/
-    // <Navbar/>
-    <ReadMessagePopup />
+    <Navbar/>
+    // <ReadMessagePopup />
     // <SendMessagePopup submitFunction={(a, b) => { console.log(a + '\n' + b); }} />
     // <div className='App'>
     // 	<Login />
