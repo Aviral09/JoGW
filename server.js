@@ -4,11 +4,11 @@ const bodyparser = require('body-parser');
 const fs = require('fs');
 const servePage = require('./util/servePage');
 
-// Connection to database
-require('./dbconfig/connect')();
-
 // Development environment variables
 require('dotenv').config();
+
+// Connection to database
+require('./dbconfig/connect')();
 
 // Middleware
 const app = express();
