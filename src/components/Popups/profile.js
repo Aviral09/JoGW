@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 const name = 'Nipun Gupta';
 
-export default function Profile() {
+export default function Profile({ name, bitsId }) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -79,7 +79,7 @@ export default function Profile() {
             <ListItemAvatar>
               <Avatar className={classes.orange}>N</Avatar>
             </ListItemAvatar>
-            <ListItemText primary={name} secondary="2019B1PS1000G" />
+            <ListItemText primary={name} secondary={bitsId} />
           </ListItem>
           <Divider variant="inset" component="li" />
           <ListItem button>

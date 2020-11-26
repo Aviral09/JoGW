@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react';
-import { GoogleLogout } from 'react-google-login';
+import React, { useEffect, useState } from 'react';
+import Personal from '../personal/personal';
+// import { GoogleLogout } from 'react-google-login';
 
-const clientId =
-  '962832623705-a7nlpkt0ps3bo3rdsov390bppfifrrp0.apps.googleusercontent.com';
+// const clientId =
+//   '962832623705-a7nlpkt0ps3bo3rdsov390bppfifrrp0.apps.googleusercontent.com';
 
 function Logout() {
+  const [name, setName] = useState('');
+  const [bitsId, setBitsId] = useState('');
   useEffect(() => {
     const url = window.location.href;
     const code = url.split('?code=')[1].split('&scope=')[0];
@@ -14,7 +17,7 @@ function Logout() {
     if (code) {
       async function fetchData() {
         try {
-          const response = await (
+          const { ok, token } = await (
             await fetch(
               `http://localhost:5000/api/user/oauthlogin?code=${code}`,
               {
@@ -24,10 +27,13 @@ function Logout() {
             )
           ).json();
 
-          if (!response.ok) {
-            window.location.href = '/login';
+          if (!ok) {
+            // window.location.href = '/';
           } else {
-            alert('Yay you logged in!');
+            localStorage.setItem('token', token);
+            const { name, bitsId } = JSON.parse(atob(token.split('.')[1]));
+            setName(name);
+            setBitsId(bitsId);
           }
         } catch (error) {
           console.log(error);
@@ -38,17 +44,19 @@ function Logout() {
     }
   });
 
-  const onSuccess = (res) => {
-    console.log('Logged out');
-  };
+  // const onSuccess = (res) => {
+  //   console.log('Logged out');
+  // };
 
   return (
     <div>
-      <GoogleLogout
+      {/* <GoogleLogout
         clientId={clientId}
         buttonText="Logout"
         onLogoutSuccess={onSuccess}
-      />
+      /> */}
+      Success
+      <Personal name={name} bitsId={bitsId} />
     </div>
   );
 }
