@@ -8,41 +8,42 @@ import Personal from '../personal/personal';
 function Logout() {
   const [name, setName] = useState('');
   const [bitsId, setBitsId] = useState('');
+
   useEffect(() => {
     const url = window.location.href;
-    const code = url.split('?code=')[1].split('&scope=')[0];
 
-    // console.log(code);
+    if (url.includes('?code=')) {
+      const code = url.split('?code=')[1].split('&scope=')[0];
+      if (code) {
+        async function fetchData() {
+          try {
+            const { ok, token } = await (
+              await fetch(
+                `http://localhost:5000/api/user/oauthlogin?code=${code}`,
+                {
+                  method: 'GET',
+                  'Content-Type': 'application/json',
+                }
+              )
+            ).json();
 
-    if (code) {
-      async function fetchData() {
-        try {
-          const { ok, token } = await (
-            await fetch(
-              `http://localhost:5000/api/user/oauthlogin?code=${code}`,
-              {
-                method: 'GET',
-                'Content-Type': 'application/json',
-              }
-            )
-          ).json();
-
-          if (!ok) {
-            // window.location.href = '/';
-          } else {
-            localStorage.setItem('token', token);
-            const { name, bitsId } = JSON.parse(atob(token.split('.')[1]));
-            setName(name);
-            setBitsId(bitsId);
+            if (!ok) {
+              // window.location.href = '/';
+            } else {
+              localStorage.setItem('token', token);
+              const { name, bitsId } = JSON.parse(atob(token.split('.')[1]));
+              setName(name);
+              setBitsId(bitsId);
+            }
+          } catch (error) {
+            console.log(error);
           }
-        } catch (error) {
-          console.log(error);
         }
-      }
 
-      fetchData();
+        fetchData();
+      }
     }
-  });
+  }, []);
 
   // const onSuccess = (res) => {
   //   console.log('Logged out');

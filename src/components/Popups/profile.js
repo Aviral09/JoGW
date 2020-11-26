@@ -48,6 +48,11 @@ export default function Profile({ name, bitsId }) {
     setAnchorEl(null);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    location.replace('/');
+  };
+
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
 
@@ -77,7 +82,7 @@ export default function Profile({ name, bitsId }) {
         <List className={classes.root}>
           <ListItem>
             <ListItemAvatar>
-              <Avatar className={classes.orange}>N</Avatar>
+              <Avatar alt={name} className={classes.orange} />
             </ListItemAvatar>
             <ListItemText primary={name} secondary={bitsId} />
           </ListItem>
@@ -87,7 +92,11 @@ export default function Profile({ name, bitsId }) {
           </ListItem>
           <Divider />
           <ListItem button>
-            <ListItemText className={classes.typography} primary="Logout" />
+            <ListItemText
+              className={classes.typography}
+              primary="Logout"
+              onClick={handleLogout}
+            />
           </ListItem>
         </List>
         {/* <Typography className={classes.typography}>New notifications</Typography> */}
