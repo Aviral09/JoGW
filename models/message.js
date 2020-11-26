@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 const messageSchema = new mongoose.Schema({
-  senderId: {
+  senderEmail: {
     type: String,
   },
-  receiverId: {
+  receiverEmail: {
     type: String,
   },
   body: {
@@ -14,7 +14,7 @@ const messageSchema = new mongoose.Schema({
     type: Number,
     enum: [0, 1, 2, 3, 4],
   },
-  coreId: {
+  coreEmail: {
     type: String,
   },
 });

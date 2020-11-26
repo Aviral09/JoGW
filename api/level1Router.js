@@ -9,7 +9,8 @@ router.use(tokencheck);
 
 // permissionLevel check
 router.use((req, res, next) => {
-  if (req.userData.permissionLevel === 1) next();
+  const { permissionLevel } = req.userData;
+  if (permissionLevel === 1 || permissionLevel === 2) next();
   else {
     let err = new Error('Unauthorized');
     err.status = 403;
@@ -21,7 +22,7 @@ router.use((req, res, next) => {
 // get the messaged assigned for approval
 router.get('/getassignment', async (req, res, next) => {
   try {
-    const data = await Message.find({ coreId: req.userData.bitsId }).lean();
+    const data = await Message.find({ coreEmail: req.userData.email }).lean();
     res.status(200).json({ ok: 1, data });
   } catch (err) {
     next(err);
