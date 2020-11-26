@@ -41,8 +41,12 @@ app.get('/', async (req, res, next) => {
 //Routers
 const userRouter = require('./api/userRouter.js');
 
+const level1Router = require('./api/level1Router.js');
+
 // APIs
 app.use('/api/user', userRouter);
+
+app.use('/api/level1', level1Router);
 
 // 404 Handler
 app.use((req, res, next) => {
@@ -53,14 +57,7 @@ app.use((req, res, next) => {
 
 // Final error handler
 app.use(async (err, req, res, next) => {
-  if (err.status === 404) {
-    // insert path to 404 page here
-    servePage(res, 'path to 404 page');
-    return;
-  }
-
   console.log(err);
-
   res.status(err.status || 500).json({
     error: err.message,
   });
