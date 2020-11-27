@@ -115,4 +115,15 @@ router.get('/statistics', async (req, res, next) => {
   }
 });
 
+router.get('/finalapproval', async (req, res, next) => {
+  try {
+    const approved = await Messages.find({ status: 1 }).lean();
+    const denied = await Messages.find({ status: 2 }).lean();
+    const data = { approved, denied };
+    res.status(200).json({ ok: 1, data });
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = router;
