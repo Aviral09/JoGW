@@ -120,7 +120,31 @@ router.get('/finalapproval', async (req, res, next) => {
     const approved = await Messages.find({ status: 1 }).lean();
     const denied = await Messages.find({ status: 2 }).lean();
     const data = { approved, denied };
-    res.status(200).json({ ok: 1, data });
+    return res.status(200).json({ ok: 1, data });
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.get('/coreMembers', async (req, res, next) => {
+  try {
+    const members = await User.find(
+      { permissionLevel: 1 },
+      'email bitsId name'
+    ).lean();
+    return res.status(200).json({ ok: 1, members });
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.get('/unassignedMessages', async (req, res, next) => {
+  try {
+    const messages = await Message.find(
+      { status: 0 },
+      'body senderEmail receiverEmail'
+    ).lean();
+    return res.status(200).json({ ok: 1, messages });
   } catch (err) {
     next(err);
   }
