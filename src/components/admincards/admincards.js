@@ -120,6 +120,7 @@ export default function AdminCards() {
 
   return (
     <React.Fragment>
+      <Navbar navHeading="Dashboard" name={name} bitsId={bitsId} />
       <Box display="flex" flexDirection="row" p={1} m={1}>
         <Box p={1} flexGrow={1} marginLeft="190px" marginTop="7.5px">
           <b>Select</b>

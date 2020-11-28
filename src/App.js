@@ -10,6 +10,8 @@ import './App.css';
 import Personal from './components/personal/personal';
 import Navbar from './components/navbar/navbar';
 import CoreDashboard from './components/core/CoreDashboard';
+import Login from './components/Login/Login';
+import Logout from './components/Logout/Logout';
 
 function App() {
   return (
