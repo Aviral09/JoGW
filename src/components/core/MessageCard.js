@@ -69,7 +69,7 @@ const MessageCard = ({ rollNumber, message, date }) => {
           children={message}
         />
         <div className={classes.cardFooter}>
-        <CardActions disableSpacing>
+          <CardActions disableSpacing>
             <IconButton>
               <ThumbUpOutlined />
             </IconButton>

@@ -16,15 +16,15 @@ import AdminCards from './components/admincards/admincards';
 
 function App() {
   return (
-   // <Router>
+    // <Router>
     //  <Switch>
     //    <Route exact path="/home" component={Logout} />
-     //   <Route exact path="/" component={Login} />
-     // </Switch>
-   // </Router>
-     
-      // <Personal />
-       <AdminCards/>
+    //   <Route exact path="/" component={Login} />
+    // </Switch>
+    // </Router>
+
+    // <Personal />
+    <AdminCards />
     // <div  className='App'>
     // 	<Login />
     // 	<Logout />

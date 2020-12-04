@@ -47,7 +47,7 @@ export default function Notifs() {
   return (
     <div>
       <IconButton className={classes.menuButton} onClick={handleClick}>
-        <NotificationsActiveIcon style={{ } } className='dussi'/>
+        <NotificationsActiveIcon style={{}} className="dussi" />
       </IconButton>
 
       {/* <Button aria-describedby={id} variant="contained" color="primary" onClick={handleClick}>

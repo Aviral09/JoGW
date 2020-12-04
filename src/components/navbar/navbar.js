@@ -36,8 +36,8 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '50px',
   },
   top: {
-   marginTop: '17px',
-   padding: '4px',
+    marginTop: '17px',
+    padding: '4px',
   },
 }));
 
@@ -50,23 +50,32 @@ export default function Navbar({ navHeading, name, bitsId }) {
     <React.Fragment>
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
-          <Grid container direction="row" justify="space-between" alignItems="flex-start">
-            <Grid item xs sm md={4} lg={4} >
-            <div  className='trux'>
-                JoGW
-            </div>
+          <Grid
+            container
+            direction="row"
+            justify="space-between"
+            alignItems="flex-start"
+          >
+            <Grid item xs sm md={4} lg={4}>
+              <div className="trux">JoGW</div>
             </Grid>
-            <Grid item xs sm md={4} lg={4} >
-            <div  className='trux1'>
-                {navHeading}
-            </div>
+            <Grid item xs sm md={4} lg={4}>
+              <div className="trux1">{navHeading}</div>
             </Grid>
-            <Grid  item xs sm md={4} lg={4} alignContent="flex-end" className={classes.top}>
+            <Grid
+              item
+              xs
+              sm
+              md={4}
+              lg={4}
+              alignContent="flex-end"
+              className={classes.top}
+            >
               <Profile name={name} bitsId={bitsId} />
 
               {/* <IconButton className={classes.menuButton}><NotificationsActiveIcon  /></IconButton> */}
               <Notifs />
-              <Search/> 
+              <Search />
             </Grid>
           </Grid>
         </Toolbar>

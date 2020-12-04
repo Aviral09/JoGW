@@ -10,7 +10,6 @@ import {
 
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 
-
 const useStyles = makeStyles((theme) => ({
   msgCard: {
     padding: '15px',
@@ -52,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AdminMessageCard = ({ rollNumber, message, date ,index,n}) => {
+const AdminMessageCard = ({ rollNumber, message, date, index, n }) => {
   const classes = useStyles();
   if (rollNumber == null) {
     rollNumber = '2019A8PS0666G';
@@ -60,7 +59,7 @@ const AdminMessageCard = ({ rollNumber, message, date ,index,n}) => {
   }
   return (
     <React.Fragment>
-      <Card className={classes.msgCard} >
+      <Card className={classes.msgCard}>
         <CardHeader
           title={'To: ' + rollNumber}
           className={classes.cardHeaderRollNum}
@@ -77,9 +76,11 @@ const AdminMessageCard = ({ rollNumber, message, date ,index,n}) => {
         <div className={classes.cardFooter}>
           <p className={classes.date}>{date}</p>
           <CardActions disableSpacing>
-          <IconButton>
-                <CheckCircleOutlineIcon style={{ color: index < n ? 'green' : 'red' }}></CheckCircleOutlineIcon>
-              </IconButton>
+            <IconButton>
+              <CheckCircleOutlineIcon
+                style={{ color: index < n ? 'green' : 'red' }}
+              ></CheckCircleOutlineIcon>
+            </IconButton>
           </CardActions>
         </div>
       </Card>

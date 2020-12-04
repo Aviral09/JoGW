@@ -59,7 +59,7 @@ export default function Profile({ name, bitsId }) {
   return (
     <div>
       <IconButton className={classes.menuButton} onClick={handleClick}>
-        <AccountCircleRoundedIcon className='dussi'/>
+        <AccountCircleRoundedIcon className="dussi" />
       </IconButton>
 
       {/* <Button aria-describedby={id} variant="contained" color="primary" onClick={handleClick}>

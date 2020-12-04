@@ -70,6 +70,7 @@
     width: 100%;
     height: 50px;
 }
+
 @media only screen and (max-width: 1000px) {
     .check{
         background-color:#FFFDE8;
@@ -84,15 +85,18 @@
     background: #FFFDE8; 
     height: 300px;
     }
+
   }
 
   @media only screen and (max-width: 1515px) and (min-width: 1110px) {
+
     .crux {
         position: absolute;
         height: 300px;
         width: 100%;
         margin-top: 76px;
-     }
+    }
+
      .color{
         background: #FFFDE8; 
         padding-top: 0px;
@@ -101,20 +105,21 @@
         border-radius: 20px 20px 0px 0px;
         width: 100%;
     }
+
     .terova {
         position: fixed;
         margin-top: 16.5em;
         width: 100%;
         background: #FFFDE8; 
         height: 300px;
-        }
-        .check{
-            background-color:#FFFDE8;
-            width: 100%;
-            height: 170px;
-        }
+    }
+    .check{
+        background-color:#FFFDE8;
+        width: 100%;
+        height: 170px;
+    }
 
-   }
+}
 
    @media only screen and (max-width: 550px) {
     .crux {
@@ -143,7 +148,7 @@
         background: #FFFDE8; 
         height: 300px;
         }
-   }
+}
 
    @media only screen and (max-width: 1110px)  and (min-width: 550px){
     .crux {
@@ -166,11 +171,12 @@
         width: 100%;
         background: #FFFDE8; 
         height: 300px;
-        }
-        .check{
-            background-color:#FFFDE8;
-            width: 100%;
-            height: 150px;
-        }
+    }
 
-   }
+    .check{
+        background-color:#FFFDE8;
+        width: 100%;
+        height: 150px;
+    }
+
+}
