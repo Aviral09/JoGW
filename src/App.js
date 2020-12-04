@@ -12,19 +12,20 @@ import Navbar from './components/navbar/navbar';
 import CoreDashboard from './components/core/CoreDashboard';
 import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
+import AdminCards from './components/admincards/admincards';
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/home" component={Logout} />
-        <Route exact path="/" component={Login} />
-      </Switch>
-    </Router>
-    // <div>
-    //   <Personal />
-    // </div>
-    // <div className='App'>
+   // <Router>
+    //  <Switch>
+    //    <Route exact path="/home" component={Logout} />
+     //   <Route exact path="/" component={Login} />
+     // </Switch>
+   // </Router>
+     
+      // <Personal />
+       <AdminCards/>
+    // <div  className='App'>
     // 	<Login />
     // 	<Logout />
     // </div>

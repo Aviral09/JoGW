@@ -1,0 +1,176 @@
+.tetris{
+    background: #EF4646;
+}
+
+.margi{
+        transform: scale(1.04,1.29);
+        border-radius: 10px;
+        width: 100%;
+}
+
+
+.mark{
+    margin-bottom: 10px;
+}
+
+.color{
+    background: #FFFDE8; 
+    padding-top: 0px;
+    position: absolute;
+    margin-top:69px ;
+    border-radius: 20px 20px 0px 0px;
+    width: 100%;
+}
+
+
+.rad{
+    margin-top: 23px;
+    border-radius: 10px;
+    transform: scale(1.25);
+}
+
+.crux{
+    position: absolute;
+    height: 300px;
+    width: 100%;
+}
+
+.terov{
+    position: absolute;
+    width: 100%;
+    background: #FFFDE8; 
+    height:457px;
+    overflow: hidden;
+    margin-top: 55px;
+}
+
+.terova{
+    position: fixed;
+    margin-top: 29.25em;
+    width: 100%;
+    background: #FFFDE8; 
+    height: 200px;
+}
+
+.scale{
+    width: 100%;
+    transform: scaleY(1.1);
+}
+
+.scale1{
+    width: 100%;
+}
+.chez{
+    position: absolute;
+    width:100%;
+    background-color:#FFFDE8;
+}
+.check{
+    background-color:#FFFDE8;
+    width: 100%;
+    height: 50px;
+}
+@media only screen and (max-width: 1000px) {
+    .check{
+        background-color:#FFFDE8;
+        width: 100%;
+        height: 170px;
+    }
+
+   .terova {
+    position: fixed;
+    margin-top: 31.7em;
+    width: 100%;
+    background: #FFFDE8; 
+    height: 300px;
+    }
+  }
+
+  @media only screen and (max-width: 1515px) and (min-width: 1110px) {
+    .crux {
+        position: absolute;
+        height: 300px;
+        width: 100%;
+        margin-top: 76px;
+     }
+     .color{
+        background: #FFFDE8; 
+        padding-top: 0px;
+        position: absolute;
+        margin-top:150px ;
+        border-radius: 20px 20px 0px 0px;
+        width: 100%;
+    }
+    .terova {
+        position: fixed;
+        margin-top: 16.5em;
+        width: 100%;
+        background: #FFFDE8; 
+        height: 300px;
+        }
+        .check{
+            background-color:#FFFDE8;
+            width: 100%;
+            height: 170px;
+        }
+
+   }
+
+   @media only screen and (max-width: 550px) {
+    .crux {
+        position: absolute;
+        height: 300px;
+        width: 100%;
+        margin-top: 145px;
+     }
+     .color{
+        background: #FFFDE8; 
+        padding-top: 0px;
+        position: absolute;
+        margin-top:220px ;
+        border-radius: 20px 20px 0px 0px;
+        width: 100%;
+    }
+    .check{
+        background-color:#FFFDE8;
+        width: 100%;
+        height: 50px; 
+    }
+    .terova {
+        position: fixed;
+        margin-top: 31.7em;
+        width: 100%;
+        background: #FFFDE8; 
+        height: 300px;
+        }
+   }
+
+   @media only screen and (max-width: 1110px)  and (min-width: 550px){
+    .crux {
+        position: absolute;
+        height: 300px;
+        width: 100%;
+        margin-top: 76px;
+     }
+     .color{
+        background: #FFFDE8; 
+        padding-top: 0px;
+        position: absolute;
+        margin-top:150px ;
+        border-radius: 20px 20px 0px 0px;
+        width: 100%;
+    }
+    .terova {
+        position: fixed;
+        margin-top: 17.5em;
+        width: 100%;
+        background: #FFFDE8; 
+        height: 300px;
+        }
+        .check{
+            background-color:#FFFDE8;
+            width: 100%;
+            height: 150px;
+        }
+
+   }

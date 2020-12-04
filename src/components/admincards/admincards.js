@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Container, IconButton } from '@material-ui/core';
-import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 import TextField from '@material-ui/core/TextField';
+import Navbar from '../navbar/navbar';
+import Button from '@material-ui/core/Button';
+import '../personal/personal.css';
+import AdminMessageCard  from './messageadmincard';
+import  {Scrollbars} from 'react-custom-scrollbars';
+
 
 const useStyles = makeStyles((theme) => ({
   margi: {
@@ -26,9 +27,24 @@ const useStyles = makeStyles((theme) => ({
   jin: {
     marginTop: '8px',
   },
+  border: {
+    borderBottom: '4px solid #FC0404',
+    borderWidth: '50%',
+   // borderRadius: '12.5px',
+  },
+  border1: {
+    borderBottom: '4px solid #FFD94D',
+    borderWidth: '50%',
+   // borderRadius: '12.5px',
+  },
+  border2: {
+    borderBottom: '4px solid #4CBC14',
+    borderWidth: '50%',
+   // borderRadius: '12.5px',
+  },
 }));
 
-export default function AdminCards() {
+export default function AdminCards({ name, bitsId }) {
   const classes = useStyles();
   const [checked, setChecked] = useState(false);
   const [checked1, setChecked1] = useState(false);
@@ -118,15 +134,89 @@ export default function AdminCards() {
     setn(event.target.value);
   };
 
+  const [color,setColor] = useState('#FB8989');
+
+const boxClick = (e) => {
+    setColor('#FFFDE8');
+    setColor1('#FB8989');
+};
+
+const [color1,setColor1] = useState('#FB8989');
+
+const boxClick1 = (e) => {
+    setColor1('#FFFDE8');
+    setColor('#FB8989');
+};
+
   return (
     <React.Fragment>
-      <Navbar navHeading="Dashboard" name={name} bitsId={bitsId} />
+      <Navbar navHeading="Admin DashBoard" name={name} bitsId={bitsId} />
+      <div className='crux' bgcolor="#EF4646" >
+      <Box display="flex" bgcolor="#EF4646" >   
+          <Box width='10%'>
+          
+          </Box>
+        <Box p={0.8} style={{backgroundColor: color, textTransform: "none" }}  className='rad' width='61%'textAlign='center' >
+        <Button onClick={boxClick} style={{fontWeight:'700',textTransform: 'none'}} size="large" className='margi' >
+         <b> Pending Messages</b>
+        </Button>
+        </Box>
+        <Box bgcolor="#EF4646"  width='20%'>
+
+        </Box>
+        <Box p={0.8} style={{backgroundColor: color1, textTransform: "none"}}  width='61%' className='rad' textAlign='center' flexShrink={1} >      
+        <Button onClick={boxClick1} style={{fontWeight:'700',textTransform: 'none'}}  size="large" className='margi'>
+        <b> Final Approval</b>
+        </Button>
+        </Box>
+        <Box width='10%'>
+          
+          </Box>         
+      </Box > 
+      </div>
+      
+      <div className='color' style={{backgroundColor: '#FFFDE8'}}>
+      <div className='margin'>
       <Box display="flex" flexDirection="row" p={1} m={1}>
-        <Box p={1} flexGrow={1} marginLeft="190px" marginTop="7.5px">
-          <b>Select</b>
+      <Box p={1} flexGrow={1}>
+
+        </Box>       
+        <Box p={1} flexGrow={1} style={{ textTransform: "none"}} textAlign='center' className={classes.border}>
+        <Button size="medium" style={{ textTransform: "none", fontFamily: 'Oxygen',fontStyle: 'normal', fontWeight: 'bold', fontSize: '18px'}}>
+          <b>Red Flagged</b>
+        </Button>
+        </Box>
+        <Box p={1} flexGrow={2}>
+
+        </Box>
+        
+        <Box p={1} flexGrow={1} style={{ textTransform: "none"}} textAlign='center' className={classes.border1}>
+        <Button size="medium" style={{ textTransform: "none", fontFamily: 'Oxygen',fontStyle: 'normal', fontWeight: 'bold', fontSize: '18px'}}>
+          <b>Yellow Flagged</b>
+        </Button>
+        </Box>
+        <Box p={1} flexGrow={2}>
+          
+          </Box>
+        <Box p={1} flexGrow={1} style={{ textTransform: "none"}}  textAlign='center' className={classes.border2}>
+        <Button size="medium" style={{ textTransform: "none", fontFamily: 'Oxygen',fontStyle: 'normal', fontWeight: 'bold', fontSize: '18px'}} >
+          <b>Green Flagged</b>
+        </Button>
         </Box>
         <Box p={1} flexGrow={1}>
-          <b>First 10</b>
+
+        </Box>  
+      </Box>
+      </div>
+
+      <div className='chez'> 
+      <Box display="flex" flexDirection="row" p={1} m={1}>
+        <Box p={1} flexGrow={1} marginLeft='30px' marginTop='8px' style={{ textTransform: "none", fontFamily: 'Oxygen',fontStyle: 'normal',fontWeight: 'bold'}}>
+          <b>Select</b>
+        </Box>
+        <Box p={1} flexGrow={4}></Box>
+        <Box p={1} flexGrow={1}>
+          First 10
           <Checkbox
             checked={checked}
             name="hel"
@@ -134,8 +224,10 @@ export default function AdminCards() {
             inputProps={{ 'aria-label': 'primary checkbox' }}
           />
         </Box>
+        <Box p={1} flexGrow={4}>
+        </Box>
         <Box p={1} flexGrow={1}>
-          <b>First 25</b>
+          First 25
           <Checkbox
             checked={checked1}
             onChange={handleChange20}
@@ -144,8 +236,9 @@ export default function AdminCards() {
             inputProps={{ 'aria-label': 'secondary checkbox' }}
           />
         </Box>
+        <Box p={1} flexGrow={4}></Box>
         <Box p={1} flexGrow={1} marginTop="7.5px">
-          <b>First </b>
+          First 
           <TextField
             id="standard-multiline-flexible"
             multiline
@@ -156,32 +249,59 @@ export default function AdminCards() {
           />
         </Box>
       </Box>
+      </div>
 
-      {list.slice(0, 50).map((text, index) => (
-        <Grid container direction={'column'} className={classes.jojo}>
-          <Container className={classes.margi}>
-            <Grid container direction={'row'}>
-              <Grid item xs lg={2} className={classes.Gin}>
-                <Typography variant="h6" edge="start">
-                  <b>{text}</b>
-                </Typography>
-              </Grid>
+      <div className='terov'>
+       <Scrollbars style={{ }}>
+      {list.slice(0, 50).map((message, index) => (
 
-              <Grid item xs className={classes.jin}>
-                <Typography variant="h6">
-                  <b>...</b>
-                </Typography>
-              </Grid>
-              <Grid item xs alignContent="flex-end"></Grid>
-              <IconButton
-                style={{ backgroundColor: index < n ? 'green' : 'red' }}
-              >
-                <CheckCircleOutlineIcon></CheckCircleOutlineIcon>
-              </IconButton>
-            </Grid>
-          </Container>
-        </Grid>
+        <AdminMessageCard
+        message={message}
+        rollNumber={'2019A8PS0666G'}
+        message={message}
+        date={'28th Dec 2020, 2:31 a.m.'}
+        n={n}
+        index={index}
+        />
+
       ))}
+      </Scrollbars> 
+      </div>
+
+      <div className='terova'>
+      <div className='check'>
+      </div>  
+      <Box display="flex" flexDirection="row" p={1} m={1}>
+      <Box p={1} flexGrow={0.25}>
+
+      </Box>      
+        <Box p={1} flexGrow={1}  textAlign='center' >
+        <Button size='large' style={{backgroundColor: '#EF4646' , borderRadius: '40px', fontWeight:'700',textTransform: 'none'}} className='scale'>
+          <b style={{color: '#FFFFFF'}}>Reject</b>
+        </Button>
+        </Box>
+        <Box p={1} flexGrow={4}>
+
+      </Box> 
+        <Box p={1} flexGrow={1} textAlign='center' >
+        <Button size='large' >
+          <b >Next 50 </b>
+        </Button>
+        </Box>
+        <Box p={1} flexGrow={4}>
+          
+          </Box>
+        <Box p={1} flexGrow={1} textAlign='center' >
+        <Button size='large' className='scale1' style={{backgroundColor: '#00CF53' , borderRadius: '40px',fontWeight:'700',textTransform: 'none'}} className='scale'>
+          <b style={{color: '#FFFFFF'}}>Approve</b>
+        </Button>
+        </Box>
+        <Box p={1} flexGrow={0.25}>
+
+        </Box> 
+      </Box>
+      </div>
+      </div>
     </React.Fragment>
   );
 }

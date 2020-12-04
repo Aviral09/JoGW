@@ -7,6 +7,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
+import '../popups/search.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
     float: 'right',
     width: '2rem',
     height: '2rem',
+    paddingRight: '37px',
   },
 }));
 
@@ -45,7 +47,7 @@ export default function Notifs() {
   return (
     <div>
       <IconButton className={classes.menuButton} onClick={handleClick}>
-        <NotificationsActiveIcon />
+        <NotificationsActiveIcon style={{ } } className='dussi'/>
       </IconButton>
 
       {/* <Button aria-describedby={id} variant="contained" color="primary" onClick={handleClick}>

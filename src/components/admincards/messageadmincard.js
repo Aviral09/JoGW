@@ -7,23 +7,26 @@ import {
   IconButton,
   makeStyles,
 } from '@material-ui/core';
-import {
-  FlagOutlined,
-  ThumbDownOutlined,
-  ThumbUpOutlined,
-} from '@material-ui/icons';
+
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+
 
 const useStyles = makeStyles((theme) => ({
   msgCard: {
     padding: '15px',
     marginTop: '15px',
-    backgroundColor: '#E2E2E2',
+    backgroundColor: '#FFD94D',
+    marginRight: '3rem',
+    marginLeft: '3rem',
+    borderRadius: '15px',
+    boxShadow: ' 10px 10px 5px grey',
   },
   cardHeaderRollNum: {
     fontSize: '17px',
     fontWeight: '700',
     padding: 0,
     marginTop: '10px',
+    fontFamily: 'Roboto',
   },
   cardContent: {
     '&:last-child': {
@@ -35,18 +38,21 @@ const useStyles = makeStyles((theme) => ({
     display: '-webkit-box',
     lineClamp: 3,
     boxOrient: 'vertical',
+    fontFamily: 'Raleway',
   },
   cardFooter: {
     display: 'flex',
     justifyContent: 'space-between',
     padding: 0,
+    fontFamily: 'Roboto',
+    fontStyle: 'italic',
   },
   date: {
     margin: '20px 15px 0 0',
   },
 }));
 
-const MessageCard = ({ rollNumber, message, date }) => {
+const AdminMessageCard = ({ rollNumber, message, date ,index,n}) => {
   const classes = useStyles();
   if (rollNumber == null) {
     rollNumber = '2019A8PS0666G';
@@ -54,7 +60,7 @@ const MessageCard = ({ rollNumber, message, date }) => {
   }
   return (
     <React.Fragment>
-      <Card className={classes.msgCard}>
+      <Card className={classes.msgCard} >
         <CardHeader
           title={'To: ' + rollNumber}
           className={classes.cardHeaderRollNum}
@@ -69,22 +75,16 @@ const MessageCard = ({ rollNumber, message, date }) => {
           children={message}
         />
         <div className={classes.cardFooter}>
-        <CardActions disableSpacing>
-            <IconButton>
-              <ThumbUpOutlined />
-            </IconButton>
-            <IconButton>
-              <ThumbDownOutlined />
-            </IconButton>
-            <IconButton>
-              <FlagOutlined />
-            </IconButton>
-          </CardActions>
           <p className={classes.date}>{date}</p>
+          <CardActions disableSpacing>
+          <IconButton>
+                <CheckCircleOutlineIcon style={{ color: index < n ? 'green' : 'red' }}></CheckCircleOutlineIcon>
+              </IconButton>
+          </CardActions>
         </div>
       </Card>
     </React.Fragment>
   );
 };
 
-export default MessageCard;
+export default AdminMessageCard;

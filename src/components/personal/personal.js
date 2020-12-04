@@ -1,4 +1,4 @@
-import React from 'react';
+import {React,useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
@@ -14,16 +14,14 @@ import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import Typography from '@material-ui/core/Typography';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import '../navbar/navbar.css';
+import '../personal/personal.css';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
     position: 'fixed',
     bottom: theme.spacing(2),
     right: theme.spacing(2),
-  },
-  appBar: {
-    backgroundColor: 'grey',
-    zIndex: 1,
   },
   title: {
     textAlign: 'center',
@@ -35,6 +33,9 @@ const useStyles = makeStyles((theme) => ({
     width: '2rem',
     height: '2rem',
   },
+  auto:{
+   
+  },
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
@@ -45,16 +46,21 @@ const useStyles = makeStyles((theme) => ({
   card: {
     backgroundColor: ' #E7B8B8',
   },
+  margi: {
+    border: '3px solid black',
+    backgroundColor: '#FFE171',
+    margin: '5px',
+    borderRadius: '18px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+
+  },
   Gin: {
     marginTop: '8px',
     marginRight: '10px',
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     flex: 1,
-  },
-  margi: {
-    border: '3px solid black',
-    backgroundColor: ' grey',
   },
   imgt: {
     flex: 1,
@@ -69,6 +75,12 @@ const useStyles = makeStyles((theme) => ({
   Gi: {
     flex: 2,
   },
+  rad: {
+    borderRadius: '10px',
+  },
+  hot: {
+    color: '#EF4646',
+  }
 }));
 
 export default function Personal({ name, bitsId }, props) {
@@ -108,6 +120,14 @@ export default function Personal({ name, bitsId }, props) {
       threshold: 100,
     });
 
+
+const [color,setColor] = useState('#FB8989');
+
+const boxClick = (e) => {
+    setColor('#FFFDE8');
+};
+
+
     const handleClick = (event) => {
       const anchor = (event.target.ownerDocument || document).querySelector(
         '#back-to-top-anchor'
@@ -127,24 +147,41 @@ export default function Personal({ name, bitsId }, props) {
     );
   }
   return (
-    <React.Fragment>
+   <React.Fragment> 
       {/*Nav bar*/}
+     
       <Navbar navHeading="Dashboard" name={name} bitsId={bitsId} />
       {/*Inbox and sent buttons*/}
-      <Box textAlign="center">
-        <Button size="medium" className={classes.margin}>
+      
+      <Box display="flex"  bgcolor="#EF4646 ">    
+          <Box width='10%'>
+          
+          </Box>
+        <Box style={{backgroundColor: color}}  marginLeft='4rem' className='rad' width='70%'textAlign='center' >
+        <Button onClick={boxClick} size="large" className='margi' >
           <b>Inbox</b>
         </Button>
-        <Button size="medium" className={classes.margin}>
+        </Box>
+        <Box bgcolor="#EF4646 "  width='15%'>
+
+        </Box>
+        <Box  style={{backgroundColor: color}}  marginRight='2rem' width='70%' className='rad' textAlign='center' flexShrink={1} >      
+        <Button onClick={boxClick} size="large" className='margi'>
           <b>Sent</b>
         </Button>
-      </Box>
+        </Box>
+        <Box width='10%'>
+
+        </Box>
+      </Box >
+      
       {/*Welcome message and heading*/}
-      <Container>
-        <h1>Welcome Nipun </h1>
+      <div className='color'>
+      <Container >
+        <h1 className={classes.hot}>Welcome Nipun </h1>
       </Container>
       <Box textAlign="center">
-        <h3>Messages</h3>
+        <h1>Messages</h1>
       </Box>
 
       {/* <Container>
@@ -169,7 +206,7 @@ export default function Personal({ name, bitsId }, props) {
     </Container> */}
       {/*Container to show all messages*/}
       {det.slice(0, 20).map((text, index) => (
-        <Grid container direction={'column'}>
+        <Grid container direction={'column'} >
           <Container className={classes.margi}>
             <Grid container direction={'row'}>
               <Grid item xs className={classes.jin}>
@@ -205,7 +242,7 @@ export default function Personal({ name, bitsId }, props) {
       <Grid container direction={'row'} className={classes.fix}>
         <Grid item xs className={classes.leg}></Grid>
         <Grid item className={classes.imgt}>
-          <IconButton className={classes.ter}>
+          <IconButton className={classes.ter} color="secondary">
             <AddCircleIcon className="tera" />
           </IconButton>
         </Grid>
@@ -219,6 +256,8 @@ export default function Personal({ name, bitsId }, props) {
           </ScrollTop>
         </Grid>
       </Grid>
-    </React.Fragment>
+      </div>
+      
+   </React.Fragment> 
   );
 }
