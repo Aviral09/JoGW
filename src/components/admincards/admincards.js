@@ -7,7 +7,9 @@ import Navbar from '../navbar/navbar';
 import Button from '@material-ui/core/Button';
 import '../personal/personal.css';
 import AdminMessageCard from './messageadmincard';
-import { Scrollbars } from 'react-custom-scrollbars';
+//import { Scrollbars } from 'react-custom-scrollbars';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import { IconButton } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   margi: {
@@ -48,58 +50,15 @@ export default function AdminCards({ name, bitsId }) {
   const [checked, setChecked] = useState(false);
   const [checked1, setChecked1] = useState(false);
   const [n, setn] = useState(' ');
-  const list = [
-    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ',
-    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ',
-    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ',
-    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ',
-    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ',
-    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ',
-    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
-    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
-    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
-    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
-    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
-    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
-    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
-    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
-    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
-    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
-    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
-    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
-    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
-    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
-    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
-    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
-    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
-    'Whether article spirits new her covered hastily sitting her.',
-    ' Money witty books nor son add',
-    ' Money witty books nor son add',
-    ' Money witty books nor son add',
-    ' Money witty books nor son add',
-    ' Money witty books nor son add',
-    ' Money witty books nor son add',
-    ' Money witty books nor son add',
-    ' Money witty books nor son add',
-    ' Money witty books nor son add',
-    ' Money witty books nor son add',
-    ' Money witty books nor son add',
-    ' Money witty books nor son add',
-    ' Money witty books nor son add',
-    ' Money witty books nor son add',
-    ' Money witty books nor son add',
-    ' Money witty books nor son add',
-    ' Money witty books nor son add',
-    ' Money witty books nor son add',
-    ' Money witty books nor son add',
-    ' Money witty books nor son add',
-    ' Money witty books nor son add',
-  ];
+  var k=50;
+
+  const list= Array(60).fill('Ye bhi thik hai. :/')
 
   const handleChange10 = (event) => {
     if (checked1 == true) {
       setChecked1(!checked1);
     }
+    setValue(' ');
     setChecked(!checked);
     if (event.target.checked == true) {
       setn(10);
@@ -110,6 +69,7 @@ export default function AdminCards({ name, bitsId }) {
     if (checked == true) {
       setChecked(!checked);
     }
+    setValue(' ');
     setChecked1(event.target.checked);
     if (event.target.checked == true) {
       setn(25);
@@ -117,6 +77,18 @@ export default function AdminCards({ name, bitsId }) {
   };
 
   const [value, setValue] = useState(' ');
+
+
+  const handleClick =(e)=>{
+    if (checked == true) {
+      setChecked(!checked);
+    }
+    if (checked1 == true) {
+      setChecked1(!checked1);
+    }
+    setValue(' ');
+    setn(n+50);
+  }
 
   const handleChangeinput = (event) => {
     if (checked == true) {
@@ -315,7 +287,7 @@ export default function AdminCards({ name, bitsId }) {
         </div>
 
         <div className="terov">
-          {list.slice(0, 50).map((message, index) => (
+          {list.slice(n, n+50).map((message, index) => (
             <AdminMessageCard
               message={message}
               rollNumber={'2019A8PS0666G'}
@@ -347,9 +319,22 @@ export default function AdminCards({ name, bitsId }) {
             </Box>
             <Box p={1} flexGrow={4}></Box>
             <Box p={1} flexGrow={1} textAlign="center">
-              <Button size="large">
-                <b>Next 50 </b>
-              </Button>
+            <Button
+                size="medium"
+                style={{
+                  textTransform: 'none',
+                  fontFamily: 'Oxygen',
+                  fontStyle: 'normal',
+                  fontWeight: 'bold',
+                  fontSize: '22px',
+                }}
+                onClick={handleClick}
+              >
+                <b style={{marginRight: '11px'}}>Next 50 </b>
+                <svg className='.a_head' width="12" height="22" viewBox="0 0 12 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11.6899 11.6037L1.51429 21.7512C1.1809 22.0835 0.641125 22.0829 0.30829 21.7495C-0.0242867 21.4161 -0.0234273 20.876 0.310009 20.5435L9.87997 11L0.309665 1.45647C-0.0237282 1.12389 -0.0245876 0.584164 0.307946 0.250727C0.474793 0.08358 0.693375 3.8147e-06 0.911956 3.8147e-06C1.12998 3.8147e-06 1.3477 0.0830212 1.51425 0.249008L11.6899 10.3963C11.8505 10.556 11.9406 10.7734 11.9406 11C11.9406 11.2265 11.8503 11.4437 11.6899 11.6037Z" fill="black"/>
+                </svg>
+            </Button>
             </Box>
             <Box p={1} flexGrow={4}></Box>
             <Box p={1} flexGrow={1} textAlign="center">
