@@ -1,4 +1,8 @@
-  
+ .clue{
+     position: relative;
+     background-color: #EF4646;
+ }
+ 
 .tetris{
     background: #EF4646;
 }

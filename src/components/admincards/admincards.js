@@ -7,9 +7,6 @@ import Navbar from '../navbar/navbar';
 import Button from '@material-ui/core/Button';
 import '../personal/personal.css';
 import AdminMessageCard from './messageadmincard';
-//import { Scrollbars } from 'react-custom-scrollbars';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import { IconButton } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   margi: {
@@ -121,8 +118,9 @@ export default function AdminCards({ name, bitsId }) {
 
   return (
     <React.Fragment>
+      <div className ='clue'>
       <Navbar navHeading="Admin DashBoard" name={name} bitsId={bitsId} />
-      <div className="crux" bgcolor="#EF4646">
+      <div className="crux"  bgcolor="#EF4646">
         <Box display="flex" bgcolor="#EF4646">
           <Box width="10%"></Box>
           <Box
@@ -355,6 +353,7 @@ export default function AdminCards({ name, bitsId }) {
             <Box p={1} flexGrow={0.25}></Box>
           </Box>
         </div>
+      </div>
       </div>
     </React.Fragment>
   );
