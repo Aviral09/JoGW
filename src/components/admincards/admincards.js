@@ -315,18 +315,16 @@ export default function AdminCards({ name, bitsId }) {
         </div>
 
         <div className="terov">
-          <Scrollbars style={{}}>
-            {list.slice(0, 50).map((message, index) => (
-              <AdminMessageCard
-                message={message}
-                rollNumber={'2019A8PS0666G'}
-                message={message}
-                date={'28th Dec 2020, 2:31 a.m.'}
-                n={n}
-                index={index}
-              />
-            ))}
-          </Scrollbars>
+          {list.slice(0, 50).map((message, index) => (
+            <AdminMessageCard
+              message={message}
+              rollNumber={'2019A8PS0666G'}
+              message={message}
+              date={'28th Dec 2020, 2:31 a.m.'}
+              n={n}
+              index={index}
+            />
+          ))}
         </div>
 
         <div className="terova">
