@@ -18,12 +18,12 @@ const useStyles = makeStyles((theme) => ({
     /* Red Primary */
     //overflow: 'hidden' ,
     background: '#EF4646',
-    [theme.breakpoints.down('md')]: {
+   // [theme.breakpoints.down('md')]: {
       // backgroundColor: 'red',
-    },
+    //},
   },
   mid: {
-    position: 'absolute',
+    position: 'fixed',
     width: `${(481 * width) / 1440}px`,
     height: `${(452 * height) / 1024}px`,
     left: `${(194 * width) / 1440}px`,
@@ -35,10 +35,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   message: {
-    position: 'absolute',
+    position: 'fixed',
     width: `${(373 * width) / 1440}px`,
     height: `${(56 * height) / 1024}px`,
-    left: `${(222 * width) / 1440}px`,
+    left:   `${width > 1320 ? (222 * width) / 1440 : (162 * width) / 1440}px`,
+    //left: `${(222 * width) / 1440}px`,
     top: `${(641 * height) / 1024}px`,
     overflow: 'hidden',
     fontFamily: 'Raleway',
@@ -57,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
     //position: 'absolute',
     position: 'fixed',
     width: `${(533 * width) / 1440}px`,
-    height: `${(910 * height) / 1024}px`,
+    height: `${height > 820 ? (910 * height) / 1024 : (850 * height) / 1024}px`,
     // left:  `${907*width/1440}px`,
     //overflow: 'hidden' ,
     top: `${(0 * height) / 1024}px`,
@@ -113,7 +114,7 @@ const useStyles = makeStyles((theme) => ({
     width: `${(376 * width) / 1440}px`,
     height: `${(100 * height) / 1024}px`,
     left: `${(80 * width) / 1440}px`,
-    bottom: `${(75 * height) / 1024}px`,
+    bottom: `${height > 820 ? (75 * height) / 1024 : (155 * height) / 1024}px`,
     // overflow: 'hidden' ,
     background: '#FFFFFF',
     border: '0.05px solid #000000',
