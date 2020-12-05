@@ -28,7 +28,7 @@ function App() {
     // <Personal />
     //<AdminCards />
     //<Welcome/>
-    <Welcome1/>
+    <Welcome1 />
     // <div  className='App'>
     // 	<Login />
     // 	<Logout />
