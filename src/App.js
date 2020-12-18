@@ -12,7 +12,6 @@ import Navbar from './components/navbar/navbar';
 import CoreDashboard from './components/core/CoreDashboard';
 import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
-import Welcome from './components/welcome/welcome';
 import Welcome1 from './components/welcome/welcome1';
 import AdminCards from './components/admincards/admincards';
 
