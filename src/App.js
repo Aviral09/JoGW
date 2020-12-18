@@ -14,6 +14,7 @@ import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
 import Welcome1 from './components/welcome/welcome1';
 import AdminCards from './components/admincards/admincards';
+import AssignCoreMembersPopup from './components/Popups/AssignCoreMembersPopup';
 
 function App() {
   return (
@@ -27,7 +28,8 @@ function App() {
     // <Personal />
     //<AdminCards />
     //<Welcome/>
-    <Welcome1 />
+    <AssignCoreMembersPopup />
+    // <Welcome1 />
     // <div  className='App'>
     // 	<Login />
     // 	<Logout />
