@@ -1,16 +1,15 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Popover from '@material-ui/core/Popover';
-import Typography from '@material-ui/core/Typography';
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
 import { IconButton } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Divider from '@material-ui/core/Divider';
+import './search.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
     float: 'right',
     width: '2rem',
     height: '2rem',
+    paddingRight: '27px',
   },
   orange: {
     color: theme.palette.getContrastText('#aa11ff'),
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 const name = 'Nipun Gupta';
 
-export default function Profile() {
+export default function Profile({ name, bitsId }) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -48,13 +48,18 @@ export default function Profile() {
     setAnchorEl(null);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    location.replace('/');
+  };
+
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
 
   return (
     <div>
       <IconButton className={classes.menuButton} onClick={handleClick}>
-        <AccountCircleRoundedIcon />
+        <AccountCircleRoundedIcon className="dussi" />
       </IconButton>
 
       {/* <Button aria-describedby={id} variant="contained" color="primary" onClick={handleClick}>
@@ -77,9 +82,9 @@ export default function Profile() {
         <List className={classes.root}>
           <ListItem>
             <ListItemAvatar>
-              <Avatar className={classes.orange}>N</Avatar>
+              <Avatar alt={name} className={classes.orange} />
             </ListItemAvatar>
-            <ListItemText primary={name} secondary="2019B1PS1000G" />
+            <ListItemText primary={name} secondary={bitsId} />
           </ListItem>
           <Divider variant="inset" component="li" />
           <ListItem button>
@@ -87,7 +92,11 @@ export default function Profile() {
           </ListItem>
           <Divider />
           <ListItem button>
-            <ListItemText className={classes.typography} primary="Logout" />
+            <ListItemText
+              className={classes.typography}
+              primary="Logout"
+              onClick={handleLogout}
+            />
           </ListItem>
         </List>
         {/* <Typography className={classes.typography}>New notifications</Typography> */}

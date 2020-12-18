@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
@@ -14,16 +14,13 @@ import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import Typography from '@material-ui/core/Typography';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import '../navbar/navbar.css';
+import '../personal/personal.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     position: 'fixed',
     bottom: theme.spacing(2),
     right: theme.spacing(2),
-  },
-  appBar: {
-    backgroundColor: 'grey',
-    zIndex: 1,
   },
   title: {
     textAlign: 'center',
@@ -35,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
     width: '2rem',
     height: '2rem',
   },
+  auto: {},
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
@@ -45,16 +43,20 @@ const useStyles = makeStyles((theme) => ({
   card: {
     backgroundColor: ' #E7B8B8',
   },
+  margi: {
+    border: '3px solid black',
+    backgroundColor: '#FFE171',
+    margin: '5px',
+    borderRadius: '18px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  },
   Gin: {
     marginTop: '8px',
     marginRight: '10px',
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     flex: 1,
-  },
-  margi: {
-    border: '3px solid black',
-    backgroundColor: ' grey',
   },
   imgt: {
     flex: 1,
@@ -69,9 +71,15 @@ const useStyles = makeStyles((theme) => ({
   Gi: {
     flex: 2,
   },
+  rad: {
+    borderRadius: '10px',
+  },
+  hot: {
+    color: '#EF4646',
+  },
 }));
 
-export default function Personal(props) {
+export default function Personal({ name, bitsId }, props) {
   const classes = useStyles();
   var det = [
     'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ',
@@ -108,6 +116,12 @@ export default function Personal(props) {
       threshold: 100,
     });
 
+    const [color, setColor] = useState('#FB8989');
+
+    const boxClick = (e) => {
+      setColor('#FFFDE8');
+    };
+
     const handleClick = (event) => {
       const anchor = (event.target.ownerDocument || document).querySelector(
         '#back-to-top-anchor'
@@ -129,25 +143,49 @@ export default function Personal(props) {
   return (
     <React.Fragment>
       {/*Nav bar*/}
-      <Navbar navHeading="Dashboard" />
+
+      <Navbar navHeading="Dashboard" name={name} bitsId={bitsId} />
       {/*Inbox and sent buttons*/}
-      <Box textAlign="center">
-        <Button size="medium" className={classes.margin}>
-          <b>Inbox</b>
-        </Button>
-        <Button size="medium" className={classes.margin}>
-          <b>Sent</b>
-        </Button>
-      </Box>
-      {/*Welcome message and heading*/}
-      <Container>
-        <h1>Welcome Nipun </h1>
-      </Container>
-      <Box textAlign="center">
-        <h3>Messages</h3>
+
+      <Box display="flex" bgcolor="#EF4646 ">
+        <Box width="10%"></Box>
+        <Box
+          style={{ backgroundColor: color }}
+          marginLeft="4rem"
+          className="rad"
+          width="70%"
+          textAlign="center"
+        >
+          <Button onClick={boxClick} size="large" className="margi">
+            <b>Inbox</b>
+          </Button>
+        </Box>
+        <Box bgcolor="#EF4646 " width="15%"></Box>
+        <Box
+          style={{ backgroundColor: color }}
+          marginRight="2rem"
+          width="70%"
+          className="rad"
+          textAlign="center"
+          flexShrink={1}
+        >
+          <Button onClick={boxClick} size="large" className="margi">
+            <b>Sent</b>
+          </Button>
+        </Box>
+        <Box width="10%"></Box>
       </Box>
 
-      {/* <Container>
+      {/*Welcome message and heading*/}
+      <div className="color">
+        <Container>
+          <h1 className={classes.hot}>Welcome Nipun </h1>
+        </Container>
+        <Box textAlign="center">
+          <h1>Messages</h1>
+        </Box>
+
+        {/* <Container>
 
 
       {['Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ',  'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add'].map((text, index) => (
@@ -167,58 +205,63 @@ export default function Personal(props) {
       ))}
     
     </Container> */}
-      {/*Container to show all messages*/}
-      {det.slice(0, 20).map((text, index) => (
-        <Grid container direction={'column'}>
-          <Container className={classes.margi}>
-            <Grid container direction={'row'}>
-              <Grid item xs className={classes.jin}>
-                <IconButton>
-                  <ArrowForwardIcon></ArrowForwardIcon>
-                </IconButton>
-              </Grid>
-              <Grid item xs className={classes.Gi}>
-                <Typography variant="h6" p={1}>
-                  <b>
-                    <IconButton>Subject</IconButton>
-                  </b>
-                </Typography>
-              </Grid>
+        {/*Container to show all messages*/}
+        {det.slice(0, 20).map((text, index) => (
+          <Grid container direction={'column'}>
+            <Container className={classes.margi}>
+              <Grid container direction={'row'}>
+                <Grid item xs className={classes.jin}>
+                  <IconButton>
+                    <ArrowForwardIcon></ArrowForwardIcon>
+                  </IconButton>
+                </Grid>
+                <Grid item xs className={classes.Gi}>
+                  <Typography variant="h6" p={1}>
+                    <b>
+                      <IconButton>Subject</IconButton>
+                    </b>
+                  </Typography>
+                </Grid>
 
-              <Grid
-                item
-                xs
-                alignContent="flex-end"
-                className={classes.Gi}
-              ></Grid>
-              <Grid item xs lg={2} className={classes.Gin}>
-                <Typography variant="h6" edge="start">
-                  <b>{text}</b>
-                </Typography>
+                <Grid
+                  item
+                  xs
+                  alignContent="flex-end"
+                  className={classes.Gi}
+                ></Grid>
+                <Grid item xs lg={2} className={classes.Gin}>
+                  <Typography variant="h6" edge="start">
+                    <b>{text}</b>
+                  </Typography>
+                </Grid>
+                <Grid item xs lg={2} className={classes.Gi}></Grid>
               </Grid>
-              <Grid item xs lg={2} className={classes.Gi}></Grid>
-            </Grid>
-          </Container>
-        </Grid>
-      ))}
+            </Container>
+          </Grid>
+        ))}
 
-      <Grid container direction={'row'} className={classes.fix}>
-        <Grid item xs className={classes.leg}></Grid>
-        <Grid item className={classes.imgt}>
-          <IconButton className={classes.ter}>
-            <AddCircleIcon className="tera" />
-          </IconButton>
-        </Grid>
+        <Grid container direction={'row'} className={classes.fix}>
+          <Grid item xs className={classes.leg}></Grid>
+          <Grid item className={classes.imgt}>
+            <IconButton className={classes.ter} color="secondary">
+              <AddCircleIcon className="tera" />
+            </IconButton>
+          </Grid>
 
-        {/*Scroll to top FAB*/}
-        <Grid item className={classes.imgt}>
-          <ScrollTop {...props}>
-            <Fab color="secondary" size="small" aria-label="scroll back to top">
-              <KeyboardArrowUpIcon />
-            </Fab>
-          </ScrollTop>
+          {/*Scroll to top FAB*/}
+          <Grid item className={classes.imgt}>
+            <ScrollTop {...props}>
+              <Fab
+                color="secondary"
+                size="small"
+                aria-label="scroll back to top"
+              >
+                <KeyboardArrowUpIcon />
+              </Fab>
+            </ScrollTop>
+          </Grid>
         </Grid>
-      </Grid>
+      </div>
     </React.Fragment>
   );
 }
