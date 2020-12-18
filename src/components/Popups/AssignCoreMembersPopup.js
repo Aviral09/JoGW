@@ -19,6 +19,18 @@ import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles = makeStyles(() =>
   createStyles({
+    '@global': {
+      '*::-webkit-scrollbar': {
+        width: '3px',
+      },
+      '*::-webkit-scrollbar-track': {
+        '-webkit-box-shadow': 'inset 0 0 6px rgba(0,0,0,0.00)',
+      },
+      '*::-webkit-scrollbar-thumb': {
+        backgroundColor: '#EF4646',
+        borderRadius: '30px',
+      },
+    },
     button: {
       background: '#00CF53',
       color: 'white',
@@ -58,6 +70,8 @@ const useStyles = makeStyles(() =>
     },
     modalBody: {
       width: '100%',
+      height: '70vh',
+      maxHeight: '80%',
       display: 'flex',
       flexDirection: 'column',
       padding: '0.2rem 1rem 0.8rem 1rem',
@@ -74,6 +88,7 @@ const useStyles = makeStyles(() =>
       borderRadius: '10px',
       background: '#FFFDE8',
       margin: '0.2rem 0rem 0.2rem 0rem',
+      overflowY: 'scroll',
     },
     resultItemName: {
       width: '100%',
@@ -117,6 +132,21 @@ const searchResultsData = [
   },
   {
     id: 5,
+    name: 'Himanshu Jain',
+    bitsId: '2019A3PS0432G',
+  },
+  {
+    id: 6,
+    name: 'Himanshu Jain',
+    bitsId: '2019A3PS0432G',
+  },
+  {
+    id: 7,
+    name: 'Himanshu Jain',
+    bitsId: '2019A3PS0432G',
+  },
+  {
+    id: 8,
     name: 'Himanshu Jain',
     bitsId: '2019A3PS0432G',
   },
