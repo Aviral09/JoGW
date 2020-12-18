@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 import {
   Button,
@@ -16,15 +16,13 @@ import {
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import SearchIcon from '@material-ui/icons/Search';
+import './A.css';
 
 const useStyles = makeStyles(() =>
   createStyles({
     '@global': {
       '*::-webkit-scrollbar': {
         width: '3px',
-      },
-      '*::-webkit-scrollbar-track': {
-        '-webkit-box-shadow': 'inset 0 0 6px rgba(0,0,0,0.00)',
       },
       '*::-webkit-scrollbar-thumb': {
         backgroundColor: '#EF4646',
@@ -89,14 +87,17 @@ const useStyles = makeStyles(() =>
       background: '#FFFDE8',
       margin: '0.2rem 0rem 0.2rem 0rem',
       overflowY: 'scroll',
+      maxHeight: '100%',
     },
     resultItemName: {
       width: '100%',
       display: 'flex',
       justifyContent: 'space-between',
+      paddingLeft: '1rem',
     },
     name: {
       fontWeight: '800',
+      fontFamily: 'Oxygen',
     },
     bitsId: {
       fontSize: '0.9rem',
@@ -112,7 +113,7 @@ const searchResultsData = [
   },
   {
     id: 1,
-    name: 'Nipun Gupta',
+    name: 'Nipun Gupta ',
     bitsId: '2019B4PS1111G',
   },
   {
@@ -150,19 +151,73 @@ const searchResultsData = [
     name: 'Himanshu Jain',
     bitsId: '2019A3PS0432G',
   },
+  {
+    id: 8,
+    name: 'Himanshu Jain',
+    bitsId: '2019A3PS0432G',
+  },
 ];
 
 const NamesList = ({ searchedData, data }) => {
   const classes = useStyles();
+  const [c1, setc1] = useState('inline');
+  const [c2, setc2] = useState('none');
+  const click1 = (e) => {
+    setc1('none');
+    setc2('inline');
+  };
+  const click2 = (e) => {
+    setc1('inline');
+    setc2('none');
+  };
+
   return (
     <List>
       {!searchedData
         ? data.map((result, index) => {
             return (
               <ListItem button key={index}>
-                <ListItemAvatar>
+                {/*<ListItemAvatar>
                   <Avatar alt={result.name} src="/static/images/avatar/1.jpg" />
-                </ListItemAvatar>
+                </ListItemAvatar>*/}
+                <svg
+                  onClick={click1}
+                  display={c1}
+                  width="37"
+                  height="37"
+                  viewBox="0 0 37 37"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M24.44 2H12C6.47715 2 2 6.47715 2 12V25C2 30.5228 6.47715 35 12 35H25C30.5228 35 35 30.5228 35 25V11.9"
+                    stroke="#EF4646"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <svg
+                  onClick={click2}
+                  display={c2}
+                  width="42"
+                  height="38"
+                  viewBox="0 0 42 38"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M24.7491 3H12C6.47715 3 2 7.47715 2 13V26C2 31.5228 6.47715 36 12 36H25.4545C30.9774 36 35.4545 31.5228 35.4545 26V12.9"
+                    stroke="#EF4646"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M7.35266 20.4977L13.679 25.2532C15.7919 26.8415 18.776 26.5108 20.4899 24.4985L38.7999 3"
+                    stroke="#EF4646"
+                    stroke-width="5"
+                    stroke-linecap="round"
+                  />
+                </svg>
                 <div className={classes.resultItemName}>
                   <Typography className={classes.name}>
                     {result.name}
@@ -177,9 +232,44 @@ const NamesList = ({ searchedData, data }) => {
         : searchedData.map((result, index) => {
             return (
               <ListItem button key={index}>
-                <ListItemAvatar>
-                  <Avatar alt={result.name} src="/static/images/avatar/1.jpg" />
-                </ListItemAvatar>
+                <svg
+                  onClick={click1}
+                  display={c1}
+                  width="37"
+                  height="37"
+                  viewBox="0 0 37 37"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M24.44 2H12C6.47715 2 2 6.47715 2 12V25C2 30.5228 6.47715 35 12 35H25C30.5228 35 35 30.5228 35 25V11.9"
+                    stroke="#EF4646"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <svg
+                  onClick={click2}
+                  display={c2}
+                  width="42"
+                  height="38"
+                  viewBox="0 0 42 38"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M24.7491 3H12C6.47715 3 2 7.47715 2 13V26C2 31.5228 6.47715 36 12 36H25.4545C30.9774 36 35.4545 31.5228 35.4545 26V12.9"
+                    stroke="#EF4646"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M7.35266 20.4977L13.679 25.2532C15.7919 26.8415 18.776 26.5108 20.4899 24.4985L38.7999 3"
+                    stroke="#EF4646"
+                    stroke-width="5"
+                    stroke-linecap="round"
+                  />
+                </svg>
                 <div className={classes.resultItemName}>
                   <Typography className={classes.name}>
                     {result.name}
@@ -255,7 +345,7 @@ const AssignCoreMembersPopup = () => {
               <h3 style={{ paddingLeft: '2rem' }}>Assign Core Members</h3>
             </div>
             <div className={classes.modalBody}>
-              <Paper component="form" className={classes.search}>
+              <Paper component="form" className={classes.search} id="search">
                 <IconButton
                   type="submit"
                   className={classes.iconButton}
