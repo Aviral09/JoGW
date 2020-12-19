@@ -1,5 +1,5 @@
 .tera{
-    transform: scale(2.89);
+    transform: scale(4);
 }
 @import url('https://fonts.googleapis.com/css?family=Oxygen');
 
@@ -8,8 +8,8 @@
     color: #FFFFFF;
     font-style: normal;
     font-weight: bold;
-    font-size: 60px;
-    line-height: 76px;
+    font-size: 3.5rem;
+
 }
 
 .trux1{
@@ -17,8 +17,7 @@
     color: #FFFFFF;
     font-style: normal;
     font-weight: bold;
-    font-size: 60px;
-    line-height: 76px;
+    font-size: 3.5rem;
     text-align: center;
 }
 
