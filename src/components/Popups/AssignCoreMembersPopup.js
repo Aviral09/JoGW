@@ -10,13 +10,10 @@ import {
   IconButton,
   List,
   ListItem,
-  ListItemAvatar,
-  Avatar,
   Typography,
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import SearchIcon from '@material-ui/icons/Search';
-import './A.css';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -58,6 +55,8 @@ const useStyles = makeStyles(() =>
       padding: '0rem 1rem 0rem 1rem',
       alignItems: 'center',
       background: '#EF4646',
+      fontFamily: 'Oxygen',
+      fontSize: '18px',
     },
     close: {
       color: '#000',
@@ -80,6 +79,7 @@ const useStyles = makeStyles(() =>
       borderRadius: '10px',
       background: '#FFFDE8',
       margin: '0.2rem 0rem 0.2rem 0rem',
+      transform: 'scaleX(0.98)',
     },
     searchResults: {
       width: '100%',
@@ -101,6 +101,12 @@ const useStyles = makeStyles(() =>
     },
     bitsId: {
       fontSize: '0.9rem',
+    },
+    noResults: {
+      width: '100%',
+      padding: '0.5rem 0rem',
+      display: 'flex',
+      justifyContent: 'center',
     },
   })
 );
@@ -173,114 +179,114 @@ const NamesList = ({ searchedData, data }) => {
 
   return (
     <List>
-      {!searchedData
-        ? data.map((result, index) => {
-            return (
-              <ListItem button key={index}>
-                {/*<ListItemAvatar>
+      {!searchedData ? (
+        data.map((result, index) => {
+          return (
+            <ListItem button key={index}>
+              {/*<ListItemAvatar>
                   <Avatar alt={result.name} src="/static/images/avatar/1.jpg" />
                 </ListItemAvatar>*/}
-                <svg
-                  onClick={click1}
-                  display={c1}
-                  width="37"
-                  height="37"
-                  viewBox="0 0 37 37"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M24.44 2H12C6.47715 2 2 6.47715 2 12V25C2 30.5228 6.47715 35 12 35H25C30.5228 35 35 30.5228 35 25V11.9"
-                    stroke="#EF4646"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                  />
-                </svg>
-                <svg
-                  onClick={click2}
-                  display={c2}
-                  width="42"
-                  height="38"
-                  viewBox="0 0 42 38"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M24.7491 3H12C6.47715 3 2 7.47715 2 13V26C2 31.5228 6.47715 36 12 36H25.4545C30.9774 36 35.4545 31.5228 35.4545 26V12.9"
-                    stroke="#EF4646"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                  />
-                  <path
-                    d="M7.35266 20.4977L13.679 25.2532C15.7919 26.8415 18.776 26.5108 20.4899 24.4985L38.7999 3"
-                    stroke="#EF4646"
-                    stroke-width="5"
-                    stroke-linecap="round"
-                  />
-                </svg>
-                <div className={classes.resultItemName}>
-                  <Typography className={classes.name}>
-                    {result.name}
-                  </Typography>
-                  <Typography className={classes.bitsId}>
-                    {result.bitsId}
-                  </Typography>
-                </div>
-              </ListItem>
-            );
-          })
-        : searchedData.map((result, index) => {
-            return (
-              <ListItem button key={index}>
-                <svg
-                  onClick={click1}
-                  display={c1}
-                  width="37"
-                  height="37"
-                  viewBox="0 0 37 37"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M24.44 2H12C6.47715 2 2 6.47715 2 12V25C2 30.5228 6.47715 35 12 35H25C30.5228 35 35 30.5228 35 25V11.9"
-                    stroke="#EF4646"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                  />
-                </svg>
-                <svg
-                  onClick={click2}
-                  display={c2}
-                  width="42"
-                  height="38"
-                  viewBox="0 0 42 38"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M24.7491 3H12C6.47715 3 2 7.47715 2 13V26C2 31.5228 6.47715 36 12 36H25.4545C30.9774 36 35.4545 31.5228 35.4545 26V12.9"
-                    stroke="#EF4646"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                  />
-                  <path
-                    d="M7.35266 20.4977L13.679 25.2532C15.7919 26.8415 18.776 26.5108 20.4899 24.4985L38.7999 3"
-                    stroke="#EF4646"
-                    stroke-width="5"
-                    stroke-linecap="round"
-                  />
-                </svg>
-                <div className={classes.resultItemName}>
-                  <Typography className={classes.name}>
-                    {result.name}
-                  </Typography>
-                  <Typography className={classes.bitsId}>
-                    {result.bitsId}
-                  </Typography>
-                </div>
-              </ListItem>
-            );
-          })}
+              <svg
+                onClick={click1}
+                display={c1}
+                width="37"
+                height="37"
+                viewBox="0 0 37 37"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M24.44 2H12C6.47715 2 2 6.47715 2 12V25C2 30.5228 6.47715 35 12 35H25C30.5228 35 35 30.5228 35 25V11.9"
+                  stroke="#EF4646"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <svg
+                onClick={click2}
+                display={c2}
+                width="42"
+                height="38"
+                viewBox="0 0 42 38"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M24.7491 3H12C6.47715 3 2 7.47715 2 13V26C2 31.5228 6.47715 36 12 36H25.4545C30.9774 36 35.4545 31.5228 35.4545 26V12.9"
+                  stroke="#EF4646"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M7.35266 20.4977L13.679 25.2532C15.7919 26.8415 18.776 26.5108 20.4899 24.4985L38.7999 3"
+                  stroke="#EF4646"
+                  stroke-width="5"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <div className={classes.resultItemName}>
+                <Typography className={classes.name}>{result.name}</Typography>
+                <Typography className={classes.bitsId}>
+                  {result.bitsId}
+                </Typography>
+              </div>
+            </ListItem>
+          );
+        })
+      ) : searchedData.length ? (
+        searchedData.map((result, index) => {
+          return (
+            <ListItem button key={index}>
+              <svg
+                onClick={click1}
+                display={c1}
+                width="37"
+                height="37"
+                viewBox="0 0 37 37"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M24.44 2H12C6.47715 2 2 6.47715 2 12V25C2 30.5228 6.47715 35 12 35H25C30.5228 35 35 30.5228 35 25V11.9"
+                  stroke="#EF4646"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <svg
+                onClick={click2}
+                display={c2}
+                width="42"
+                height="38"
+                viewBox="0 0 42 38"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M24.7491 3H12C6.47715 3 2 7.47715 2 13V26C2 31.5228 6.47715 36 12 36H25.4545C30.9774 36 35.4545 31.5228 35.4545 26V12.9"
+                  stroke="#EF4646"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M7.35266 20.4977L13.679 25.2532C15.7919 26.8415 18.776 26.5108 20.4899 24.4985L38.7999 3"
+                  stroke="#EF4646"
+                  stroke-width="5"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <div className={classes.resultItemName}>
+                <Typography className={classes.name}>{result.name}</Typography>
+                <Typography className={classes.bitsId}>
+                  {result.bitsId}
+                </Typography>
+              </div>
+            </ListItem>
+          );
+        })
+      ) : (
+        <Typography className={classes.noResults}>No results found!</Typography>
+      )}
     </List>
   );
 };
@@ -305,13 +311,13 @@ const AssignCoreMembersPopup = () => {
   };
 
   const filterSearch = () => {
-    const names = searchResults.map((a) => a.name);
+    const names = searchResults.map((a) => a.name.concat(a.bitsId));
     if (searchTerm) {
       const searchedName = names.filter((name) =>
         name.toLowerCase().includes(searchTerm.toLowerCase())
       );
       return searchResults.filter((result) =>
-        searchedName.includes(result.name)
+        searchedName.includes(result.name.concat(result.bitsId))
       );
     }
   };
@@ -345,7 +351,7 @@ const AssignCoreMembersPopup = () => {
               <h3 style={{ paddingLeft: '2rem' }}>Assign Core Members</h3>
             </div>
             <div className={classes.modalBody}>
-              <Paper component="form" className={classes.search} id="search">
+              <Paper component="form" className={classes.search}>
                 <IconButton
                   type="submit"
                   className={classes.iconButton}
