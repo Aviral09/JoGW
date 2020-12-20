@@ -1,16 +1,11 @@
-import { React, useState } from 'react';
+import { React, useState, Fragment } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import Zoom from '@material-ui/core/Zoom';
-import Fab from '@material-ui/core/Fab';
-import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Navbar from '../navbar/navbar';
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
-import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import Typography from '@material-ui/core/Typography';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import '../navbar/navbar.css';
@@ -44,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: ' #E7B8B8',
   },
   margi: {
-    border: '3px solid black',
+    // border: '3px solid black',
     backgroundColor: '#FFE171',
     margin: '5px',
     borderRadius: '18px',
@@ -52,21 +47,52 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 'auto',
   },
   Gin: {
-    marginTop: '8px',
-    marginRight: '10px',
+    marginTop: '12px',
     whiteSpace: 'nowrap',
     overflow: 'hidden',
+    flex: 1,
+  },
+  Gin1: {
+    marginTop: '12px',
+    marginRight: '2rem',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    float: 'right',
     flex: 1,
   },
   imgt: {
     flex: 1,
   },
   leg: {
-    flex: 13,
+    [theme.breakpoints.down('sm')]: {
+      flex: 5.5,
+    },
+    [theme.breakpoints.up('sm')]: {
+      flex: 11.5,
+    },
+    [theme.breakpoints.down('md')]: {
+      flex: 10.5,
+    },
+    [theme.breakpoints.up('md')]: {
+      flex: 11.5,
+    },
+    [theme.breakpoints.down('lg')]: {
+      flex: 11.5,
+    },
+    [theme.breakpoints.up('lg')]: {
+      flex: 10.5,
+    },
+    [theme.breakpoints.down('xl')]: {
+      flex: 5.5,
+    },
+    [theme.breakpoints.up('xl')]: {
+      flex: 1.5,
+    },
   },
   ter: {
-    width: 11,
-    height: 11,
+    width: '1rem',
+    height: '1rem',
+    //background: '#EF4646',
   },
   Gi: {
     flex: 2,
@@ -76,6 +102,16 @@ const useStyles = makeStyles((theme) => ({
   },
   hot: {
     color: '#EF4646',
+    fontFamily: 'Oxygen',
+  },
+  date: {
+    margin: '.8rem 1rem 0 0',
+    fontFamily: 'oxygen',
+    fontSize: '1rem',
+  },
+  height: {
+    height: `${screen.height - 265}px`,
+    //height:'100%',
   },
 }));
 
@@ -104,164 +140,116 @@ export default function Personal({ name, bitsId }, props) {
     'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
     'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
     'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
-    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
-    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
   ];
-  function ScrollTop(props) {
-    const { children, window } = props;
-    const classes = useStyles();
-    const trigger = useScrollTrigger({
-      target: window ? window() : undefined,
-      disableHysteresis: true,
-      threshold: 100,
-    });
 
-    const [color, setColor] = useState('#FB8989');
+  const [color, setColor] = useState('#FB8989');
 
-    const boxClick = (e) => {
-      setColor('#FFFDE8');
-    };
+  const boxClick = (e) => {
+    setColor('#FFFDE8');
+    setColor1('#FB8989');
+  };
 
-    const handleClick = (event) => {
-      const anchor = (event.target.ownerDocument || document).querySelector(
-        '#back-to-top-anchor'
-      );
+  const [color1, setColor1] = useState('#FB8989');
 
-      if (anchor) {
-        anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-    };
+  const boxClick1 = (e) => {
+    setColor1('#FFFDE8');
+    setColor('#FB8989');
+  };
 
-    return (
-      <Zoom in={trigger}>
-        <div onClick={handleClick} role="presentation" className={classes.root}>
-          {children}
-        </div>
-      </Zoom>
-    );
-  }
   return (
-    <React.Fragment>
+    <Fragment>
       {/*Nav bar*/}
 
-      <Navbar navHeading="Dashboard" name={name} bitsId={bitsId} />
+      <Navbar navHeading="DashBoard" name={name} bitsId={bitsId} />
       {/*Inbox and sent buttons*/}
-
-      <Box display="flex" bgcolor="#EF4646 ">
-        <Box width="10%"></Box>
-        <Box
-          style={{ backgroundColor: color }}
-          marginLeft="4rem"
-          className="rad"
-          width="70%"
-          textAlign="center"
-        >
-          <Button onClick={boxClick} size="large" className="margi">
-            <b>Inbox</b>
-          </Button>
+      <div className="crux1" bgcolor="#EF4646">
+        <Box display="flex" bgcolor="#EF4646">
+          <Box width="10%"></Box>
+          <Box
+            p={0.8}
+            style={{ backgroundColor: color, textTransform: 'none' }}
+            className="rad1"
+            width="61%"
+            textAlign="center"
+          >
+            <Button
+              onClick={boxClick}
+              style={{ fontWeight: '700', textTransform: 'none' }}
+              size="large"
+              className="margi1"
+            >
+              <b> Inbox</b>
+            </Button>
+          </Box>
+          <Box bgcolor="#EF4646" width="20%"></Box>
+          <Box
+            p={0.8}
+            style={{ backgroundColor: color1, textTransform: 'none' }}
+            width="61%"
+            className="rad1"
+            textAlign="center"
+            flexShrink={1}
+          >
+            <Button
+              onClick={boxClick1}
+              style={{ fontWeight: '700', textTransform: 'none' }}
+              size="large"
+              className="margi1"
+            >
+              <b> Sent</b>
+            </Button>
+          </Box>
+          <Box width="10%"></Box>
         </Box>
-        <Box bgcolor="#EF4646 " width="15%"></Box>
-        <Box
-          style={{ backgroundColor: color }}
-          marginRight="2rem"
-          width="70%"
-          className="rad"
-          textAlign="center"
-          flexShrink={1}
-        >
-          <Button onClick={boxClick} size="large" className="margi">
-            <b>Sent</b>
-          </Button>
-        </Box>
-        <Box width="10%"></Box>
-      </Box>
+      </div>
 
       {/*Welcome message and heading*/}
-      <div className="color">
+      <div className={classes.height} id="color1">
         <Container>
           <h1 className={classes.hot}>Welcome Nipun </h1>
         </Container>
         <Box textAlign="center">
-          <h1>Messages</h1>
+          <h1 style={{ fontFamily: 'Oxygen' }}>Messages</h1>
         </Box>
-
-        {/* <Container>
-
-
-      {['Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ',  'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ', 'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add','Whether article spirits new her covered hastily sitting her. Money witty books nor son add'].map((text, index) => (
-        <Card variant="outlined" className={classes.card} key={text}>
-  <CardContent>
-    <List>
-        <ListItem button  key={text} >
-          <ListItemIcon></ListItemIcon>
-
-          <ListItemText primary={text} className={classes.margi}/>
-        
-        </ListItem>
-        </List>
-    </CardContent>
-    </Card>
-       
-      ))}
-    
-    </Container> */}
         {/*Container to show all messages*/}
-        {det.slice(0, 20).map((text, index) => (
-          <Grid container direction={'column'}>
-            <Container className={classes.margi}>
-              <Grid container direction={'row'}>
-                <Grid item xs className={classes.jin}>
-                  <IconButton>
-                    <ArrowForwardIcon></ArrowForwardIcon>
-                  </IconButton>
+        <div className="terov1">
+          {det.slice(0, 10).map((text, index) => (
+            <Grid container direction={'column'}>
+              <Container className={classes.margi}>
+                <Grid container direction={'row'}>
+                  <Grid item xs className={classes.Gin}>
+                    <IconButton>{text}</IconButton>
+                  </Grid>
+                  <Grid
+                    item
+                    xs
+                    alignContent="flex-end"
+                    className={classes.Gi}
+                  ></Grid>
+                  <Grid item xs lg={2} className={classes.Gin1}>
+                    <Typography variant="h6" edge="start">
+                      <b key="index">
+                        <p className={classes.date}>28th Dec 2020, 2:31 a.m.</p>
+                      </b>
+                    </Typography>
+                  </Grid>
                 </Grid>
-                <Grid item xs className={classes.Gi}>
-                  <Typography variant="h6" p={1}>
-                    <b>
-                      <IconButton>Subject</IconButton>
-                    </b>
-                  </Typography>
-                </Grid>
-
-                <Grid
-                  item
-                  xs
-                  alignContent="flex-end"
-                  className={classes.Gi}
-                ></Grid>
-                <Grid item xs lg={2} className={classes.Gin}>
-                  <Typography variant="h6" edge="start">
-                    <b>{text}</b>
-                  </Typography>
-                </Grid>
-                <Grid item xs lg={2} className={classes.Gi}></Grid>
-              </Grid>
-            </Container>
-          </Grid>
-        ))}
+              </Container>
+            </Grid>
+          ))}
+        </div>
 
         <Grid container direction={'row'} className={classes.fix}>
           <Grid item xs className={classes.leg}></Grid>
           <Grid item className={classes.imgt}>
-            <IconButton className={classes.ter} color="secondary">
+            <IconButton className={classes.ter} style={{ color: '#EF4646' }}>
               <AddCircleIcon className="tera" />
             </IconButton>
           </Grid>
-
           {/*Scroll to top FAB*/}
-          <Grid item className={classes.imgt}>
-            <ScrollTop {...props}>
-              <Fab
-                color="secondary"
-                size="small"
-                aria-label="scroll back to top"
-              >
-                <KeyboardArrowUpIcon />
-              </Fab>
-            </ScrollTop>
-          </Grid>
         </Grid>
+        <Grid container direction={'row'} style={{ color: '#EF4646' }}></Grid>
       </div>
-    </React.Fragment>
+    </Fragment>
   );
 }

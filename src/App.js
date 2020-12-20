@@ -25,10 +25,9 @@ function App() {
     // </Switch>
     // </Router>
 
-    // <Personal />
+    <Personal />
     //<AdminCards />
-    //<Welcome/>
-    <AssignCoreMembersPopup />
+    //<AssignCoreMembersPopup />
     // <Welcome1 />
     // <div  className='App'>
     // 	<Login />

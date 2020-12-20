@@ -20,6 +20,7 @@ const useStyles = makeStyles(() =>
     '@global': {
       '*::-webkit-scrollbar': {
         width: '3px',
+        //height:'10px',
       },
       '*::-webkit-scrollbar-thumb': {
         backgroundColor: '#EF4646',
@@ -168,11 +169,11 @@ const NamesList = ({ searchedData, data }) => {
   const classes = useStyles();
   const [c1, setc1] = useState('inline');
   const [c2, setc2] = useState('none');
-  const click1 = (e) => {
-    setc1('none');
+  const click1 = (index) => {
     setc2('inline');
+    setc1('none');
   };
-  const click2 = (e) => {
+  const click2 = (index) => {
     setc1('inline');
     setc2('none');
   };
@@ -189,6 +190,7 @@ const NamesList = ({ searchedData, data }) => {
               <svg
                 onClick={click1}
                 display={c1}
+                val={index}
                 width="37"
                 height="37"
                 viewBox="0 0 37 37"
@@ -205,6 +207,7 @@ const NamesList = ({ searchedData, data }) => {
               <svg
                 onClick={click2}
                 display={c2}
+                val={index}
                 width="42"
                 height="38"
                 viewBox="0 0 42 38"

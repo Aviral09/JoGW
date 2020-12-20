@@ -12,6 +12,11 @@
         border-radius: 10px;
         width: 100%;
 }
+.margi1{
+    transform: scale(1.04,1.29);
+    border-radius: 10px;
+    width: 100%;
+}
 
 
 .mark{
@@ -26,9 +31,24 @@
     border-radius: 20px 20px 0px 0px;
     width: 100%;
 }
+#color1{
+    background: #FFFDE8; 
+    padding-top: 0px;
+    position: absolute;
+    margin-top:4.5rem ;
+    
+    border-radius: 20px 20px 0px 0px;
+    width: 100%;
+    border-bottom: 22px #EF4646 solid;
+}
 
 
 .rad{
+    margin-top: 23px;
+    border-radius: 10px;
+    transform: scale(1.25);
+}
+.rad1{
     margin-top: 23px;
     border-radius: 10px;
     transform: scale(1.25);
@@ -39,7 +59,11 @@
     height: 300px;
     width: 100%;
 }
-
+.crux1{
+    position: absolute;
+    height: 300px;
+    width: 100%;
+}
 .terov{
     position: absolute;
     width: 100%;
@@ -47,6 +71,12 @@
     height:457px;
     overflow: scroll;
     margin-top: 62px;
+}
+.terov1{
+    width: 100%;
+    background: #FFFDE8; 
+    height:457px;
+    overflow: scroll;   
 }
 
 
@@ -65,6 +95,20 @@
     border-radius: 30px;
     border: 25px #FFFDE8 solid;
   }  
+.terov1::-webkit-scrollbar {
+    width: 60px;
+  }
+
+.terov1::-webkit-scrollbar-track {
+    display: none;
+  }  
+
+.terov1::-webkit-scrollbar-thumb {
+    background:#EF4646;
+    height: 150px;
+    border-radius: 30px;
+    border: 25px #FFFDE8 solid;
+  } 
 
 .terova{
     position: fixed;
@@ -244,8 +288,4 @@
 
 .a_head{
     transform: scale(0.6);
-}
-
-
-   
-   
+}   
