@@ -140,6 +140,24 @@ export default function Personal({ name, bitsId }, props) {
     'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
     'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
     'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
+    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add. Chicken age had evening believe but proceed pretend mrs. At missed advice my it no sister. Miss told ham dull knew see she spot near can. Spirit her entire her called. ',
+    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
+    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
+    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
+    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
+    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
+    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
+    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
+    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
+    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
+    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
+    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
+    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
+    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
+    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
+    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
+    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
+    'Whether article spirits new her covered hastily sitting her. Money witty books nor son add',
   ];
 
   const [color, setColor] = useState('#FB8989');
@@ -155,7 +173,36 @@ export default function Personal({ name, bitsId }, props) {
     setColor1('#FFFDE8');
     setColor('#FB8989');
   };
+  const [i, seti] = useState(0);
+  const [x1, setX1] = useState('#C4C4C4');
+  const [x2, setX2] = useState('#EF4646');
 
+  const hc1 = (e) => {
+    if (i > 15) {
+      seti(i - 15);
+
+      setX1('#EF4646');
+      setX2('#EF4646');
+    } else if (i <= 15) {
+      seti(0);
+      setX1('#C4C4C4');
+    }
+    console.log(i);
+  };
+  const hc2 = (e) => {
+    console.log(i);
+
+    if (i < 15) {
+      seti(i + 15);
+      setX1('#EF4646');
+      setX2('#EF4646');
+    } else if (i >= 15) {
+      seti(30);
+      setX2('#C4C4C4');
+    }
+
+    console.log(i);
+  };
   return (
     <Fragment>
       {/*Nav bar*/}
@@ -213,7 +260,7 @@ export default function Personal({ name, bitsId }, props) {
         </Box>
         {/*Container to show all messages*/}
         <div className="terov1">
-          {det.slice(0, 10).map((text, index) => (
+          {det.slice(i, i < 25 ? i + 15 : i + 10).map((text, index) => (
             <Grid container direction={'column'}>
               <Container className={classes.margi}>
                 <Grid container direction={'row'}>
@@ -248,6 +295,50 @@ export default function Personal({ name, bitsId }, props) {
           </Grid>
           {/*Scroll to top FAB*/}
         </Grid>
+        <Box display="flex" justifyContent="center">
+          <Box justifyContent="center" marginTop="9px" marginRight="1.5rem">
+            <svg
+              onClick={hc1}
+              width="48"
+              height="23"
+              viewBox="0 0 48 23"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5.46392e-07 11.5L47.25 22.3253L47.25 0.674681L5.46392e-07 11.5Z"
+                fill={x1}
+              />
+            </svg>
+          </Box>
+          <Box justifyContent="center">
+            <Button
+              style={{
+                fontWeight: '700',
+                textTransform: 'none',
+                fontFamily: 'Oxygen',
+                fontSize: '1.25rem',
+              }}
+            >
+              Showing {i}-{i < 26 ? i + 15 : i + 10} of {det.length}
+            </Button>
+          </Box>
+          <Box justifyContent="center" marginTop="9px" marginLeft="1.5rem">
+            <svg
+              onClick={hc2}
+              width="48"
+              height="23"
+              viewBox="0 0 48 23"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M48 11.5L0.749999 22.3253L0.75 0.674681L48 11.5Z"
+                fill={x2}
+              />
+            </svg>
+          </Box>
+        </Box>
         <Grid container direction={'row'} style={{ color: '#EF4646' }}></Grid>
       </div>
     </Fragment>

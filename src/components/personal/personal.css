@@ -154,7 +154,7 @@
 
   }
 
-  @media only screen and (max-width: 1515px) and (min-width: 1110px) {
+  /*@media only screen and (max-width: 1515px) and (min-width: 1110px) {
 
     .crux {
         position: absolute;
@@ -185,7 +185,7 @@
         height: 170px;
     }
 
-}
+}*/
 
    @media only screen and (max-width: 550px) {
     .crux {
@@ -247,7 +247,7 @@
 
 }
 
-@media only screen and (max-height: 800px) and (min-height: 700px) and (max-width: 1350px) and (min-width: 1110px){
+@media only screen and (max-height: 800px) and (min-height: 700px) and (max-width: 1850px) and (min-width: 1110px){
     .crux {
         position: absolute;
         height: 300px;
@@ -266,10 +266,10 @@
 
     .terova {
         position: absolute;
-        margin-top: 16.5em;
+        margin-top: 26.5em;
         width: 100%;
         background: #FFFDE8; 
-        height: 300px;
+        height: 100px;
     }
     .check{
         background-color:#FFFDE8;
@@ -280,11 +280,21 @@
         position: absolute;
         width: 100%;
         background-color: #FFFDE8;
-        height: 210px;
-        overflow: hidden;
+        height: 384px;
+        overflow: scroll;
         margin-top: 67px;
     }
 }
+@media only screen and (max-height: 600px) and (min-height: 500px){
+    .terova {
+        position: absolute;
+        margin-top: 16.5em;
+        width: 100%;
+        background: #FFFDE8; 
+        height: 300px;
+    }
+}
+
 
 .a_head{
     transform: scale(0.6);
