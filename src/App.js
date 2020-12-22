@@ -24,7 +24,7 @@ function App() {
     //   <Route exact path="/" component={Login} />
     // </Switch>
     // </Router>
-
+    //<CoreDashboard />
     <Personal />
     //<AdminCards />
     //<AssignCoreMembersPopup />

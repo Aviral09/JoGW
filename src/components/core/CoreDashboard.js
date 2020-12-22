@@ -4,7 +4,6 @@ import {
   Container,
   makeStyles,
   Button,
-  TablePagination,
   IconButton,
 } from '@material-ui/core';
 import Navbar from '../navbar/navbar';
@@ -87,7 +86,6 @@ const Dashboard = (messages, props) => {
       const anchor = (event.target.ownerDocument || document).querySelector(
         '#back-to-top-anchor'
       );
-
       if (anchor) {
         anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
@@ -103,9 +101,7 @@ const Dashboard = (messages, props) => {
   }
   return (
     <div className={`${classes.root} ${classes.scroll}`}>
-      {/*Nav Bar*/}
       <Navbar navHeading="Core Dashboard" />
-      {/*Header tab*/}
       <div
         style={{
           backgroundColor: '#EF4646',
@@ -152,7 +148,6 @@ const Dashboard = (messages, props) => {
           </IconButton>
         </div>
       </div>
-      {/*List of messages*/}
       <Container>
         {msgs.slice(msgPage * 10, msgPage * 10 + 9).map((message) => (
           <MessageCard
