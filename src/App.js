@@ -16,12 +16,13 @@ import CoreDashboard from './components/core/CoreDashboard';
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/home" component={Logout} />
-        <Route exact path="/" component={Login} />
-      </Switch>
-    </Router>
+    <CoreDashboard />
+    // <Router>
+    //   <Switch>
+    //     <Route exact path="/home" component={Logout} />
+    //     <Route exact path="/" component={Login} />
+    //   </Switch>
+    // </Router>
     // <div>
     //   <Personal />
     // </div>

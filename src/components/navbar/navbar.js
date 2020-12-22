@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     right: theme.spacing(2),
   },
   appBar: {
-    backgroundColor: 'grey',
+    backgroundColor: '#EF4646',
     zIndex: 1,
   },
   title: {
