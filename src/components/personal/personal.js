@@ -156,6 +156,16 @@ export default function Personal({ name, bitsId }, props) {
     setColor('#FB8989');
   };
 
+  const [x1,setX1]=useState('#C4C4C4');
+  const [x2,setX2]=useState('#EF4646');
+
+  const hc1 =(e)=>{
+   setX1('#EF4646');
+  }
+  const hc2 =(e)=>{
+    setX2('#C4C4C4');
+    setX1(' #EF4646');
+  }
   return (
     <Fragment>
       {/*Nav bar*/}
@@ -247,7 +257,26 @@ export default function Personal({ name, bitsId }, props) {
             </IconButton>
           </Grid>
           {/*Scroll to top FAB*/}
-        </Grid>
+        </Grid>     
+        <Box display="flex" justifyContent="center" >
+          <Box justifyContent="center" marginTop='9px' marginRight='1.5rem'>
+          <svg nClick={hc1} width="48" height="23" viewBox="0 0 48 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5.46392e-07 11.5L47.25 22.3253L47.25 0.674681L5.46392e-07 11.5Z" fill={x1}/>
+            </svg>
+          </Box>
+          <Box justifyContent="center" >
+            <Button 
+            style={{ fontWeight: '700', textTransform: 'none',fontFamily: 'Oxygen',fontSize: '1.25rem' }}
+            >
+              Showing 1-15 of 40
+            </Button>
+            </Box>
+          <Box justifyContent="center" marginTop='9px' marginLeft='1.5rem'>
+          <svg onClick={hc2} width="48" height="23" viewBox="0 0 48 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M48 11.5L0.749999 22.3253L0.75 0.674681L48 11.5Z" fill={x2}/>
+          </svg>
+            </Box>
+        </Box> 
         <Grid container direction={'row'} style={{ color: '#EF4646' }}></Grid>
       </div>
     </Fragment>
