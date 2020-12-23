@@ -4,6 +4,7 @@ import {
   Redirect,
   Route,
   Switch,
+  Link
 } from 'react-router-dom';
 // import logo from './logo.svg';
 import './App.css';
@@ -18,22 +19,30 @@ import AssignCoreMembersPopup from './components/Popups/AssignCoreMembersPopup';
 
 function App() {
   return (
-    // <Router>
-    //  <Switch>
-    //    <Route exact path="/home" component={Logout} />
-    //   <Route exact path="/" component={Login} />
-    // </Switch>
-    // </Router>
-    //<CoreDashboard />
-    //<Personal />
-    //<AdminCards />
-    //<AssignCoreMembersPopup />
-     <Welcome1 />
-    // <div  className='App'>
-    // 	<Login />
-    // 	<Logout />
-    // </div>
+    <div>
+      <Router>
+        <Switch>
+      <Route exact path="/" component={Welcome1} />
+      <Route exact path="/home" component={Personal}/> 
+      <Route exact path="/admin" component={AdminCards} />
+      <Route exact path="/core" component={CoreDashboard} />
+      </Switch>
+      </Router>
+    </div>
   );
 }
 
 export default App;
+    //<AssignCoreMembersPopup />
+    // < />
+    // <div  className='App'>
+    // 	<Login />
+    // 	<Logout />
+    // </div>
+    // </Switch>
+    // </Router>
+    //<CoreDashboard />
+    //< />
+        // <Router>
+    //  <Switch>
+      //<Route exact path="/home" component={Personal} />}

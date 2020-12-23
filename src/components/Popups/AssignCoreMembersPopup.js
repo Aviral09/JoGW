@@ -33,11 +33,13 @@ const useStyles = makeStyles(() =>
       borderRadius: '25px',
       paddingLeft: '2.5rem',
       paddingRight: '2.5rem',
+      height:'3rem',
       textTransform: 'none',
       '&:hover': {
         background: '#00CF53',
         color: 'white',
       },
+      fontFamily:'Oxygen',
     },
     modal: {
       display: 'flex',
@@ -333,7 +335,7 @@ const AssignCoreMembersPopup = () => {
         size="large"
         onClick={handleOpen}
       >
-        Assign
+        Approve
       </Button>
       <Modal
         aria-labelledby="transition-modal-title"

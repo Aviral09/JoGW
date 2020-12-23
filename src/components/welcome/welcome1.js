@@ -8,21 +8,15 @@ console.log(screen.width);
 console.log(screen.height);
 const height = screen.height;
 const width = screen.width;
-//const mT1= (8/1024)*height;
-//const mR1= (8/1440)*width;
+
 
 const useStyles = makeStyles((theme) => ({
   main: {
     position: 'relative',
     width: `${width}px`,
     height: `${height * 0.885}px`,
-
-    /* Red Primary */
-    //overflow: 'hidden' ,
     background: '#EF4646',
-    // [theme.breakpoints.down('md')]: {
-    // backgroundColor: 'red',
-    //},
+
   },
   mid: {
     position: 'fixed',

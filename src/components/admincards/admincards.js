@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
-import Checkbox from '@material-ui/core/Checkbox';
 import TextField from '@material-ui/core/TextField';
 import Navbar from '../navbar/navbar';
 import Button from '@material-ui/core/Button';
 import '../personal/personal.css';
 import AdminMessageCard from './messageadmincard';
+import AssignCoreMembersPopup from '../Popups/AssignCoreMembersPopup';
 
 const useStyles = makeStyles((theme) => ({
   margi: {
@@ -40,6 +40,20 @@ const useStyles = makeStyles((theme) => ({
     borderWidth: '50%',
     // borderRadius: '12.5px',
   },
+  button: {
+    backgroundColor: '#EF4646',
+    color: 'white',
+    borderRadius: '25px',
+    paddingLeft: '2.5rem',
+    paddingRight: '2.5rem',
+    height:'3rem',
+    textTransform: 'none',
+    '&:hover': {
+      background: '#EF4646',
+      color: 'white',
+    },
+    fontFamily:'Oxygen',
+  }
 }));
 
 export default function AdminCards({ name, bitsId }) {
@@ -48,27 +62,30 @@ export default function AdminCards({ name, bitsId }) {
   const [checked1, setChecked1] = useState(false);
   const [n, setn] = useState(' ');
   var k = 50;
-
+ console.log(checked);
+ console.log(checked1);
   const list = Array(60).fill('Ye bhi thik hai. :/');
 
-  const handleChange10 = (event) => {
-    if (checked1 == true) {
+  const handleChange10= ()=> {
+    if (checked1 === true) {
       setChecked1(!checked1);
     }
     setValue(' ');
+
     setChecked(!checked);
-    if (event.target.checked == true) {
+    console.log(checked);
+    if (checked === false) {
       setn(10);
     } else setn(0);
   };
 
-  const handleChange20 = (event) => {
-    if (checked == true) {
+  const handleChange20= ()=> {
+    if (checked === true) {
       setChecked(!checked);
     }
     setValue(' ');
-    setChecked1(event.target.checked);
-    if (event.target.checked == true) {
+    setChecked1(!checked1);
+    if (checked1 === false) {
       setn(25);
     } else setn(0);
   };
@@ -100,7 +117,8 @@ export default function AdminCards({ name, bitsId }) {
     }
     setn(event.target.value);
   };
-
+ var block='block';
+ var none='none';
   const [color, setColor] = useState('#FB8989');
 
   const boxClick = (e) => {
@@ -248,25 +266,38 @@ export default function AdminCards({ name, bitsId }) {
                 <b>Select</b>
               </Box>
               <Box p={1} flexGrow={4}></Box>
-              <Box p={1} flexGrow={1}>
+              <Box p={1} flexGrow={1} >
+                <div className='sorrow'>
+                <div className='sorrow1'>
                 First 10
-                <Checkbox
-                  checked={checked}
-                  name="hel"
-                  onChange={handleChange10}
-                  inputProps={{ 'aria-label': 'primary checkbox' }}
-                />
+                </div>
+                <div className='sorrow2'>
+                <svg   onClick={handleChange10} display={(checked==false)?block:none} width="2rem" height="2rem" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M24.44 2H12C6.47715 2 2 6.47715 2 12V25C2 30.5228 6.47715 35 12 35H25C30.5228 35 35 30.5228 35 25V11.9" stroke="#EF4646" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+                <svg  onClick={handleChange10} display={(checked==true)?block:none} width="2rem" height="2rem" viewBox="0 0 42 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M24.7491 3H12C6.47715 3 2 7.47715 2 13V26C2 31.5228 6.47715 36 12 36H25.4545C30.9774 36 35.4545 31.5228 35.4545 26V12.9" stroke="#EF4646" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M7.35266 20.4977L13.679 25.2532C15.7919 26.8415 18.776 26.5108 20.4899 24.4985L38.7999 3" stroke="#EF4646" stroke-width="5" stroke-linecap="round"/>
+                </svg>                
+                </div>
+                </div>
               </Box>
               <Box p={1} flexGrow={4}></Box>
               <Box p={1} flexGrow={1}>
+              <div className='sorrow'>
+                <div className='sorrow1'>
                 First 25
-                <Checkbox
-                  checked={checked1}
-                  onChange={handleChange20}
-                  color="primary"
-                  name="hel"
-                  inputProps={{ 'aria-label': 'secondary checkbox' }}
-                />
+                </div>
+                <div className='sorrow2'>
+                <svg  onClick={handleChange20}  display={(checked1==false)?block:none} width="2rem" height="2rem" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M24.44 2H12C6.47715 2 2 6.47715 2 12V25C2 30.5228 6.47715 35 12 35H25C30.5228 35 35 30.5228 35 25V11.9" stroke="#EF4646" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+                <svg width="2rem" onClick={handleChange20} height="2rem" display={(checked1==true)?block:none} viewBox="0 0 42 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M24.7491 3H12C6.47715 3 2 7.47715 2 13V26C2 31.5228 6.47715 36 12 36H25.4545C30.9774 36 35.4545 31.5228 35.4545 26V12.9" stroke="#EF4646" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M7.35266 20.4977L13.679 25.2532C15.7919 26.8415 18.776 26.5108 20.4899 24.4985L38.7999 3" stroke="#EF4646" stroke-width="5" stroke-linecap="round"/>
+                </svg>
+                </div>
+                </div>
               </Box>
               <Box p={1} flexGrow={4}></Box>
               <Box p={1} flexGrow={1} marginTop="7.5px">
@@ -303,15 +334,10 @@ export default function AdminCards({ name, bitsId }) {
               <Box p={1} flexGrow={1} textAlign="center">
                 <Button
                   size="large"
-                  style={{
-                    backgroundColor: '#EF4646',
-                    borderRadius: '40px',
-                    fontWeight: '700',
-                    textTransform: 'none',
-                  }}
-                  className="scale"
+                  variant="contained"
+                  className={classes.button}    
                 >
-                  <b style={{ color: '#FFFFFF' }}>Reject</b>
+                  Reject
                 </Button>
               </Box>
               <Box p={1} flexGrow={4}></Box>
@@ -345,19 +371,7 @@ export default function AdminCards({ name, bitsId }) {
               </Box>
               <Box p={1} flexGrow={4}></Box>
               <Box p={1} flexGrow={1} textAlign="center">
-                <Button
-                  size="large"
-                  className="scale1"
-                  style={{
-                    backgroundColor: '#00CF53',
-                    borderRadius: '40px',
-                    fontWeight: '700',
-                    textTransform: 'none',
-                  }}
-                  className="scale"
-                >
-                  <b style={{ color: '#FFFFFF' }}>Approve</b>
-                </Button>
+                  <AssignCoreMembersPopup/>   
               </Box>
               <Box p={1} flexGrow={0.25}></Box>
             </Box>
