@@ -46,14 +46,14 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '25px',
     paddingLeft: '2.5rem',
     paddingRight: '2.5rem',
-    height:'3rem',
+    height: '3rem',
     textTransform: 'none',
     '&:hover': {
       background: '#EF4646',
       color: 'white',
     },
-    fontFamily:'Oxygen',
-  }
+    fontFamily: 'Oxygen',
+  },
 }));
 
 export default function AdminCards({ name, bitsId }) {
@@ -62,11 +62,11 @@ export default function AdminCards({ name, bitsId }) {
   const [checked1, setChecked1] = useState(false);
   const [n, setn] = useState(' ');
   var k = 50;
- console.log(checked);
- console.log(checked1);
+  console.log(checked);
+  console.log(checked1);
   const list = Array(60).fill('Ye bhi thik hai. :/');
 
-  const handleChange10= ()=> {
+  const handleChange10 = () => {
     if (checked1 === true) {
       setChecked1(!checked1);
     }
@@ -79,7 +79,7 @@ export default function AdminCards({ name, bitsId }) {
     } else setn(0);
   };
 
-  const handleChange20= ()=> {
+  const handleChange20 = () => {
     if (checked === true) {
       setChecked(!checked);
     }
@@ -117,8 +117,8 @@ export default function AdminCards({ name, bitsId }) {
     }
     setn(event.target.value);
   };
- var block='block';
- var none='none';
+  var block = 'block';
+  var none = 'none';
   const [color, setColor] = useState('#FB8989');
 
   const boxClick = (e) => {
@@ -266,37 +266,95 @@ export default function AdminCards({ name, bitsId }) {
                 <b>Select</b>
               </Box>
               <Box p={1} flexGrow={4}></Box>
-              <Box p={1} flexGrow={1} >
-                <div className='sorrow'>
-                <div className='sorrow1'>
-                First 10
-                </div>
-                <div className='sorrow2'>
-                <svg   onClick={handleChange10} display={(checked==false)?block:none} width="2rem" height="2rem" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M24.44 2H12C6.47715 2 2 6.47715 2 12V25C2 30.5228 6.47715 35 12 35H25C30.5228 35 35 30.5228 35 25V11.9" stroke="#EF4646" stroke-width="3" stroke-linecap="round"/>
-                </svg>
-                <svg  onClick={handleChange10} display={(checked==true)?block:none} width="2rem" height="2rem" viewBox="0 0 42 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M24.7491 3H12C6.47715 3 2 7.47715 2 13V26C2 31.5228 6.47715 36 12 36H25.4545C30.9774 36 35.4545 31.5228 35.4545 26V12.9" stroke="#EF4646" stroke-width="3" stroke-linecap="round"/>
-                  <path d="M7.35266 20.4977L13.679 25.2532C15.7919 26.8415 18.776 26.5108 20.4899 24.4985L38.7999 3" stroke="#EF4646" stroke-width="5" stroke-linecap="round"/>
-                </svg>                
-                </div>
+              <Box p={1} flexGrow={1}>
+                <div className="sorrow">
+                  <div className="sorrow1">First 10</div>
+                  <div className="sorrow2">
+                    <svg
+                      onClick={handleChange10}
+                      display={checked == false ? block : none}
+                      width="2rem"
+                      height="2rem"
+                      viewBox="0 0 37 37"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M24.44 2H12C6.47715 2 2 6.47715 2 12V25C2 30.5228 6.47715 35 12 35H25C30.5228 35 35 30.5228 35 25V11.9"
+                        stroke="#EF4646"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                    <svg
+                      onClick={handleChange10}
+                      display={checked == true ? block : none}
+                      width="2rem"
+                      height="2rem"
+                      viewBox="0 0 42 38"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M24.7491 3H12C6.47715 3 2 7.47715 2 13V26C2 31.5228 6.47715 36 12 36H25.4545C30.9774 36 35.4545 31.5228 35.4545 26V12.9"
+                        stroke="#EF4646"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                      />
+                      <path
+                        d="M7.35266 20.4977L13.679 25.2532C15.7919 26.8415 18.776 26.5108 20.4899 24.4985L38.7999 3"
+                        stroke="#EF4646"
+                        stroke-width="5"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </Box>
               <Box p={1} flexGrow={4}></Box>
               <Box p={1} flexGrow={1}>
-              <div className='sorrow'>
-                <div className='sorrow1'>
-                First 25
-                </div>
-                <div className='sorrow2'>
-                <svg  onClick={handleChange20}  display={(checked1==false)?block:none} width="2rem" height="2rem" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M24.44 2H12C6.47715 2 2 6.47715 2 12V25C2 30.5228 6.47715 35 12 35H25C30.5228 35 35 30.5228 35 25V11.9" stroke="#EF4646" stroke-width="3" stroke-linecap="round"/>
-                </svg>
-                <svg width="2rem" onClick={handleChange20} height="2rem" display={(checked1==true)?block:none} viewBox="0 0 42 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M24.7491 3H12C6.47715 3 2 7.47715 2 13V26C2 31.5228 6.47715 36 12 36H25.4545C30.9774 36 35.4545 31.5228 35.4545 26V12.9" stroke="#EF4646" stroke-width="3" stroke-linecap="round"/>
-                  <path d="M7.35266 20.4977L13.679 25.2532C15.7919 26.8415 18.776 26.5108 20.4899 24.4985L38.7999 3" stroke="#EF4646" stroke-width="5" stroke-linecap="round"/>
-                </svg>
-                </div>
+                <div className="sorrow">
+                  <div className="sorrow1">First 25</div>
+                  <div className="sorrow2">
+                    <svg
+                      onClick={handleChange20}
+                      display={checked1 == false ? block : none}
+                      width="2rem"
+                      height="2rem"
+                      viewBox="0 0 37 37"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M24.44 2H12C6.47715 2 2 6.47715 2 12V25C2 30.5228 6.47715 35 12 35H25C30.5228 35 35 30.5228 35 25V11.9"
+                        stroke="#EF4646"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                    <svg
+                      width="2rem"
+                      onClick={handleChange20}
+                      height="2rem"
+                      display={checked1 == true ? block : none}
+                      viewBox="0 0 42 38"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M24.7491 3H12C6.47715 3 2 7.47715 2 13V26C2 31.5228 6.47715 36 12 36H25.4545C30.9774 36 35.4545 31.5228 35.4545 26V12.9"
+                        stroke="#EF4646"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                      />
+                      <path
+                        d="M7.35266 20.4977L13.679 25.2532C15.7919 26.8415 18.776 26.5108 20.4899 24.4985L38.7999 3"
+                        stroke="#EF4646"
+                        stroke-width="5"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </Box>
               <Box p={1} flexGrow={4}></Box>
@@ -335,7 +393,7 @@ export default function AdminCards({ name, bitsId }) {
                 <Button
                   size="large"
                   variant="contained"
-                  className={classes.button}    
+                  className={classes.button}
                 >
                   Reject
                 </Button>
@@ -371,7 +429,7 @@ export default function AdminCards({ name, bitsId }) {
               </Box>
               <Box p={1} flexGrow={4}></Box>
               <Box p={1} flexGrow={1} textAlign="center">
-                  <AssignCoreMembersPopup/>   
+                <AssignCoreMembersPopup />
               </Box>
               <Box p={1} flexGrow={0.25}></Box>
             </Box>

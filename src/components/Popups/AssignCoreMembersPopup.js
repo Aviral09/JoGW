@@ -33,13 +33,13 @@ const useStyles = makeStyles(() =>
       borderRadius: '25px',
       paddingLeft: '2.5rem',
       paddingRight: '2.5rem',
-      height:'3rem',
+      height: '3rem',
       textTransform: 'none',
       '&:hover': {
         background: '#00CF53',
         color: 'white',
       },
-      fontFamily:'Oxygen',
+      fontFamily: 'Oxygen',
     },
     modal: {
       display: 'flex',

@@ -78,7 +78,8 @@ const AdminMessageCard = ({ rollNumber, message, date, index, n }) => {
           <p className={classes.date}>{date}</p>
           <CardActions disableSpacing>
             <IconButton>
-              <CheckCircleOutlineIcon id='mag'
+              <CheckCircleOutlineIcon
+                id="mag"
                 style={{ color: index < n ? 'green' : 'red' }}
               ></CheckCircleOutlineIcon>
             </IconButton>

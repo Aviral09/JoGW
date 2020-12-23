@@ -4,7 +4,7 @@ import {
   Redirect,
   Route,
   Switch,
-  Link
+  Link,
 } from 'react-router-dom';
 // import logo from './logo.svg';
 import './App.css';
@@ -22,27 +22,27 @@ function App() {
     <div>
       <Router>
         <Switch>
-      <Route exact path="/" component={Welcome1} />
-      <Route exact path="/home" component={Personal}/> 
-      <Route exact path="/admin" component={AdminCards} />
-      <Route exact path="/core" component={CoreDashboard} />
-      </Switch>
+          <Route exact path="/" component={Welcome1} />
+          <Route exact path="/home" component={Personal} />
+          <Route exact path="/admin" component={AdminCards} />
+          <Route exact path="/core" component={CoreDashboard} />
+        </Switch>
       </Router>
     </div>
   );
 }
 
 export default App;
-    //<AssignCoreMembersPopup />
-    // < />
-    // <div  className='App'>
-    // 	<Login />
-    // 	<Logout />
-    // </div>
-    // </Switch>
-    // </Router>
-    //<CoreDashboard />
-    //< />
-        // <Router>
-    //  <Switch>
-      //<Route exact path="/home" component={Personal} />}
+//<AssignCoreMembersPopup />
+// < />
+// <div  className='App'>
+// 	<Login />
+// 	<Logout />
+// </div>
+// </Switch>
+// </Router>
+//<CoreDashboard />
+//< />
+// <Router>
+//  <Switch>
+//<Route exact path="/home" component={Personal} />}
