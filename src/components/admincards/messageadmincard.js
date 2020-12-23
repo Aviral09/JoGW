@@ -7,6 +7,7 @@ import {
   IconButton,
   makeStyles,
 } from '@material-ui/core';
+import '../personal/personal.css';
 
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 
@@ -78,6 +79,7 @@ const AdminMessageCard = ({ rollNumber, message, date, index, n }) => {
           <CardActions disableSpacing>
             <IconButton>
               <CheckCircleOutlineIcon
+                id="mag"
                 style={{ color: index < n ? 'green' : 'red' }}
               ></CheckCircleOutlineIcon>
             </IconButton>
