@@ -25,10 +25,10 @@ function App() {
     // </Switch>
     // </Router>
     //<CoreDashboard />
-    <Personal />
+    //<Personal />
     //<AdminCards />
     //<AssignCoreMembersPopup />
-    // <Welcome1 />
+     <Welcome1 />
     // <div  className='App'>
     // 	<Login />
     // 	<Logout />
