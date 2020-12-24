@@ -120,6 +120,8 @@ const useStyles = makeStyles((theme) => ({
     // backgroundColor: 'red',
     //bottom: `${150*height/960}px`,
     // },
+    //
+    //
   },
   inner: {
     minHeight: '100%',
