@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
   cardHeaderRollNum: {
     fontSize: '20px',
     fontFamily: 'Oxygen, sans-serif',
+    fontWeight: '700',
     padding: 0,
     marginTop: '10px',
   },
@@ -28,6 +29,8 @@ const useStyles = makeStyles((theme) => ({
     margin: 0,
     overflow: 'hidden',
     fontFamily: 'Raleway, sans-serif',
+    fontSize: '17px',
+    fontWeight: '400',
   },
   cardFooter: {
     display: 'flex',
@@ -46,6 +49,9 @@ const useStyles = makeStyles((theme) => ({
   },
   anchorClass: {
     textDecoration: 'none',
+    '&:link': {
+      fontSize: '17px',
+    },
   },
 }));
 
@@ -55,7 +61,6 @@ const MessageCard = ({ rollNumber, message, date }) => {
   const [open, setOpen] = useState(false);
   const [text, setText] = useState('');
   const [status, setStatus] = useState('');
-  const [viewMore, setViewMore] = useState(false);
   // click handlers
   const handleClick = (msg) => {
     setOpen(true);
@@ -68,7 +73,6 @@ const MessageCard = ({ rollNumber, message, date }) => {
   const handleStatus = () => {
     if (status === 'accepted') return 'inset -7px 0 0 0 #00CF53';
     else if (status === 'rejected') return 'inset -7px 0 0 0 #EF4646';
-    else if (status === 'flagged for review') return 'inset -7px 0 0 0 #4B4B4B';
     else return;
   };
   // button react fragment
@@ -95,24 +99,6 @@ const MessageCard = ({ rollNumber, message, date }) => {
             fontSize: '45px',
           }}
         />
-      </IconButton>
-      <IconButton
-        classes={{ root: classes.iconButton }}
-        onClick={() => handleClick('flagged for review')}
-      >
-        <svg
-          width="42"
-          height="41"
-          viewBox="0 0 42 41"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle cx="20.55" cy="20.5" r="19" fill="#4B4B4B" />
-          <path
-            d="M15.5532 31.3904H14.1438V11.6592H31.0563L26.9691 18.0014L31.0563 24.3436H15.5532V31.3904Z"
-            fill="white"
-          />
-        </svg>
       </IconButton>
     </React.Fragment>
   );

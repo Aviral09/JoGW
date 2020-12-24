@@ -17,18 +17,6 @@ import {
 import MessageCard from './MessageCard';
 
 const useStyles = makeStyles((theme) => ({
-  scroll: {
-    '&::-webkit-scrollbar': {
-      width: '20px',
-    },
-    '&::-webkit-scrollbar-track': {
-      borderRadius: '10px',
-    },
-    '&::-webkit-scrollbar-thumb': {
-      background: 'red',
-      borderRadius: '10px',
-    },
-  },
   root: {
     backgroundColor: '#FFFDE8',
   },
@@ -100,7 +88,7 @@ const Dashboard = (messages, props) => {
     );
   }
   return (
-    <div className={`${classes.root} ${classes.scroll}`}>
+    <div className={classes.root}>
       <Navbar navHeading="Core Dashboard" />
       <div
         style={{
