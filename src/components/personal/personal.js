@@ -62,8 +62,8 @@ const useStyles = makeStyles((theme) => ({
   },
   imgt: {
     flex: 1,
-    marginTop:'-12px',
-    marginLeft:'42px'
+    marginTop: '-12px',
+    marginLeft: '42px',
   },
   leg: {
     [theme.breakpoints.down('sm')]: {
@@ -115,9 +115,9 @@ const useStyles = makeStyles((theme) => ({
     height: `${screen.height - 265}px`,
     //height:'100%',
   },
-  krait:{
-    marginLeft:'7px',
-  }
+  krait: {
+    marginLeft: '7px',
+  },
 }));
 
 export default function Personal({ name, bitsId }, props) {
@@ -267,7 +267,7 @@ export default function Personal({ name, bitsId }, props) {
         <div className="terov1">
           {det.slice(i, i < 25 ? i + 15 : i + 10).map((text, index) => (
             <Grid container direction={'column'}>
-              <Container className={classes.margi} id='cross'>
+              <Container className={classes.margi} id="cross">
                 <Grid container direction={'row'} className={classes.krait}>
                   <Grid item xs className={classes.Gin}>
                     <IconButton>{text}</IconButton>
@@ -300,7 +300,7 @@ export default function Personal({ name, bitsId }, props) {
           </Grid>
           {/*Scroll to top FAB*/}
         </Grid>
-        <Box display="flex" justifyContent="center" id='kraus'>
+        <Box display="flex" justifyContent="center" id="kraus">
           <Box justifyContent="center" marginTop="9px" marginRight="1.5rem">
             <svg
               onClick={hc1}
