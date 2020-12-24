@@ -26,6 +26,7 @@ function App() {
           <Route exact path="/home" component={Personal} />
           <Route exact path="/admin" component={AdminCards} />
           <Route exact path="/core" component={CoreDashboard} />
+          <Route exact path="/personal" component={Personal} />
         </Switch>
       </Router>
     </div>
