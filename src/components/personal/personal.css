@@ -137,6 +137,10 @@
     height: 50px;
 }
 
+.tera{
+    transform: scale(3.1);
+}
+
 @media only screen and (max-width: 1000px) {
     .check{
         background-color:#FFFDE8;
@@ -354,4 +358,27 @@ a:link {
 
 #mag{
     transform: scale(2);
+}
+
+
+@media only screen and (min-width: 600px) and (max-width: 720px){
+    .tera{
+        transform: scale(2.5);
+        margin-top: -1.3rem;
+    }
+}
+@media only screen and (min-width: 120px) and (max-width: 619px){
+    .tera{
+        transform: scale(2.5);
+        margin-top: -1.5rem;
+        margin-left: -1.5rem;
+    }
+}
+@media only screen and (min-width: 120px) and (max-width: 1340px){
+    #cross{
+        transform: scale(0.90); 
+    }
+    #kraus{
+        transform: scale(0.80);  
+    }
 }

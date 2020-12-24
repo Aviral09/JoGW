@@ -54,6 +54,7 @@ export default function Navbar({ navHeading, name, bitsId }) {
             container
             direction="row"
             justify="space-between"
+            display="flex"
             alignItems="flex-start"
           >
             <Grid item xs sm md={4} lg={4}>

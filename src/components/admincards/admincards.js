@@ -267,9 +267,9 @@ export default function AdminCards({ name, bitsId }) {
               </Box>
               <Box p={1} flexGrow={4}></Box>
               <Box p={1} flexGrow={1}>
-                <div className="sorrow">
-                  <div className="sorrow1">First 10</div>
-                  <div className="sorrow2">
+                <Box display="flex" className="sorrow">
+                  <Box className="sorrow1">First 10</Box>
+                  <Box className="sorrow2">
                     <svg
                       onClick={handleChange10}
                       display={checked == false ? block : none}
@@ -308,8 +308,8 @@ export default function AdminCards({ name, bitsId }) {
                         stroke-linecap="round"
                       />
                     </svg>
-                  </div>
-                </div>
+                  </Box>
+                </Box>
               </Box>
               <Box p={1} flexGrow={4}></Box>
               <Box p={1} flexGrow={1}>
